@@ -15,7 +15,7 @@ $font-family: Roboto;
     --p-color: #555;
     --color-text: #444;
     --title-heading: #444;
-    --hr-color: #666;
+    --hr-color: #555;
   }
 
   html[data-theme='dark']{
@@ -98,6 +98,19 @@ $font-family: Roboto;
     width: $full-width;
     padding: 2em 0;
     margin: 0;
+  }
+
+  .page-title h1{
+    color: var(--page-heading);
+  }
+
+  .page-title h1 hr{
+    width: 60px;
+    height:2px;
+    border-radius: 25px;
+    color: var(--hr-color);
+    border-color: var(--hr-color);
+    background-color: var(--hr-color);
   }
   
   .details {

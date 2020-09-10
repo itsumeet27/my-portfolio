@@ -46,22 +46,22 @@
           <!-- Left links -->
           <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="./">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about.php">About</a>
+              <a class="nav-link" href="./about.php">About</a>
             </li>   
             <li class="nav-item">
-              <a class="nav-link" href="/freelance.php">Freelance</a>
+              <a class="nav-link" href="./freelance.php">Freelance</a>
             </li>     
             <li class="nav-item">
-              <a class="nav-link" href="/work-experience.php">Work Experience</a>
+              <a class="nav-link" href="./work-experience.php">Work Experience</a>
             </li>    
             <li class="nav-item">
-              <a class="nav-link" href="/portfolio.php">Portfolio</a>
+              <a class="nav-link" href="./portfolio.php">Portfolio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/contact.php">Contact</a>
+              <a class="nav-link" href="./contact.php">Contact</a>
             </li>
           </ul>
           <!-- Left links -->
