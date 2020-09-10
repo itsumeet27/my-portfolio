@@ -99,19 +99,6 @@ $font-family: Roboto;
     padding: 2em 0;
     margin: 0;
   }
-
-  .page-title h1{
-    color: var(--page-heading);
-  }
-
-  .page-title h1 hr{
-    width: 60px;
-    height:2px;
-    border-radius: 25px;
-    color: var(--hr-color);
-    border-color: var(--hr-color);
-    background-color: var(--hr-color);
-  }
   
   .details {
     z-index: 1000;
@@ -208,19 +195,26 @@ $font-family: Roboto;
     color: var(--color-text);
     transition-duration: 0.4s;
   }
-  
-  #about{
-    padding: 6em 0em;
+
+  // About Page
+
+  .page-title h1{
+    color: var(--page-heading);
   }
-  
-  .section-title h1{
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    font-weight: 400;
+
+  .page-title h1 hr{
+    width: 60px;
+    height:2px;
+    border-radius: 25px;
+    color: var(--hr-color);
+    border-color: var(--hr-color);
+    background-color: var(--hr-color);
   }
-  
-  #about .row{
-    padding: 1em 0;
+
+  .about p{
+    text-align: justify;
+    font-size: 17px;
+    color: var(--p-color);
   }
   
   hr.section{
