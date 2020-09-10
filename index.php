@@ -14,11 +14,11 @@
         <a href="https://www.facebook.com/profile.php?id=100007900753991" target="_blank">
           <i class="fab fa-facebook-f" title="Facebook"></i>
         </a>
-        <a href="https://twitter.com/sumeet_270296" target="_blank">
-          <i class="fab fa-twitter" title="Twitter"></i>
-        </a>
         <a href="https://linkedin.com/in/itsumeet" target="_blank">
           <i class="fab fa-linkedin" title="Linkedin"></i>
+        </a>
+        <a href="https://twitter.com/sumeet_270296" target="_blank">
+          <i class="fab fa-twitter" title="Twitter"></i>
         </a>
         <a href="https://instagram.com/sumit270296" target="_blank">
           <i class="fab fa-instagram" title="Instagram"></i>

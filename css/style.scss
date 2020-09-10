@@ -8,8 +8,9 @@ $font-family: Roboto;
 
   html{
     --bg: #fcfcfc;
+    --frame-padding: rgb(241, 241, 241);
     --bg-panel: #f3f3f39e;
-    --sub-headings: #777;
+    --sub-headings: rgb(241, 241, 241);
     --page-heading: #555;
     --p-color: #555;
     --color-text: #444;
@@ -19,6 +20,7 @@ $font-family: Roboto;
 
   html[data-theme='dark']{
     --bg: #333;
+    --frame-padding: rgb(255, 255, 255);
     --bg-panel: #444;
     --sub-headings: #fcfcfc;
     --page-heading: #fcfcfc;
@@ -99,9 +101,8 @@ $font-family: Roboto;
   }
   
   .details {
-    padding: 2em;
     z-index: 1000;
-    padding-top: 5em;
+    padding: 5em 3em;
     background-color: var(--bg);
   }
   
@@ -126,7 +127,10 @@ $font-family: Roboto;
   }
   
   .image img {
-    width: 320px;
+    width: 360px;
+    padding: 1.5em;
+    background-color: var(--frame-padding);
+    box-shadow: 2px 2px 10px 3px rgba(0,0,0,0.5);
   }
   
   hr.title {
