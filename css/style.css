@@ -1,6 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -13,6 +14,8 @@ html {
   --color-text: #444;
   --title-heading: #444;
   --hr-color: #555;
+  --box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 20%)
+  ;
 }
 
 html[data-theme='dark'] {
@@ -25,6 +28,8 @@ html[data-theme='dark'] {
   --color-text: #f9f9f9;
   --title-heading: #fff;
   --hr-color: #f2f2f2;
+  --box-shadow: 1px 1px 5px 1px rgb(255 255 255 / 20%)
+  ;
 }
 
 html.transition,
@@ -262,6 +267,26 @@ label {
 .left-pane p, .left-pane ul li {
   color: var(--p-color);
   text-align: justify;
+}
+
+.portfolio-data .card {
+  background-color: var(--bg);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+}
+
+.portfolio-data .card h4, .portfolio-data .card p {
+  color: var(--p-color);
+}
+
+.portfolio-data .card .btn-portfolio i {
+  color: var(--bg-panel) !important;
+}
+
+.portfolio-data .card .btn-portfolio:hover i {
+  color: var(--p-color) !important;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
 }
 
 /* Responsive Media Queries */

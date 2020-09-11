@@ -27,7 +27,7 @@
       <!-- Container wrapper -->
       <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="/">Sumeet Sharma</a>    
+        <a class="navbar-brand" href="./">Sumeet Sharma</a>    
         <!-- Toggle button -->
         <button
           class="navbar-toggler"
@@ -50,10 +50,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./about.php">About</a>
-            </li>   
-            <li class="nav-item">
-              <a class="nav-link" href="./services.php">Services</a>
-            </li>  
+            </li> 
             <li class="nav-item">
               <a class="nav-link" href="./portfolio.php">Portfolio</a>
             </li>
