@@ -287,6 +287,45 @@ $font-family: Roboto;
     transition-duration: 0.3s;
   }
 
+  // Contact
+
+  .contact-form h4, .contact-details h4{
+    color: var(--p-color);
+  }
+
+  .contact-details p{
+    font-size: 17px;
+    color: var(--p-color)!important;
+  }
+
+  .contact-details p a{
+    color: var(--p-color)!important;
+    text-decoration: underline;
+  }
+
+  .contact-details p a:hover{
+    color: var(--p-color)!important;
+    text-decoration: none;
+    transition-duration: 0.3s;
+  }
+
+  input[type='text'], input[type='email'], textarea{
+    color: var(--p-color)!important;
+  }
+
+  #contact-form label{
+    color: var(--p-color)!important;
+  }
+
+  #contact-form .btn-portfolio i{
+    color: var(--bg-panel)!important;
+  }
+
+  #contact-form .btn-portfolio:hover i{
+    color: var(--p-color)!important;
+    transition-duration: 0.3s;
+  }
+
   /* Responsive Media Queries */
   
   @media (max-width: 740px) {
