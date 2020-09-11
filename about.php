@@ -7,8 +7,8 @@
         <!-- About -->
         <div class="about mt-2 px-4">
             <div class="row">
-                <div class="col-md-6 p-1">
-                <img src="img/itsumeet.jpg" class="img-fluid img-responsive p-3"> 
+                <div class="col-md-6 px-1">
+                    <img src="img/itsumeet.jpg" class="img-fluid img-responsive p-3"> 
                 </div>
                 <div class="col-md-6 p-3">
                     <i class="fas fa-quote-left fa-2x"></i>
