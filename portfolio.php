@@ -23,7 +23,7 @@
                             <h4 class="card-title pt-2"><?=$portfolio['name'];?></h4>
                             <p class="text-justify"><?=$portfolio['description'];?></p>
                             <?php if($portfolio['url'] != ''): ?>
-                            <a class="btn btn-lg btn-portfolio" href="<?=$portfolio['url'];?>" target="_blank">Visit Website&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>
+                            <a class="btn btn-lg btn-contact" href="<?=$portfolio['url'];?>" target="_blank">Visit Website&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>
                             <?php endif; ?>
                         </div>
                     </div>

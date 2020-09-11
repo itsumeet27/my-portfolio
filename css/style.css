@@ -270,23 +270,20 @@ label {
 }
 
 .portfolio-data .card {
-  background-color: var(--bg);
-  -webkit-box-shadow: var(--box-shadow);
-          box-shadow: var(--box-shadow);
+  background-color: var(--page-heading);
 }
 
 .portfolio-data .card h4, .portfolio-data .card p {
-  color: var(--p-color);
+  color: var(--bg);
 }
 
-.portfolio-data .card .btn-portfolio i {
-  color: var(--bg-panel) !important;
-}
-
-.portfolio-data .card .btn-portfolio:hover i {
+.portfolio-data .card .btn-contact i {
   color: var(--p-color) !important;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+}
+
+.portfolio-data .card .btn-contact {
+  background: var(--bg);
+  color: var(--p-color);
 }
 
 .contact-form h4, .contact-details h4 {
