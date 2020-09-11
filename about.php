@@ -18,7 +18,7 @@
                     <p class="px-3">
                         I am a confident individual with an intent of delivering best of my work with the help of knowledge and ability in an efficient manner. Also, I am an artist with collection of drawings that might interest you!
                     </p>
-                    <a href="http://drawingsbysumeet.itsumeet.com/" class="btn btn-portfolio btn-lg ml-3">Browse Now</a>
+                    <a href="http://drawingsbysumeet.itsumeet.com/" class="btn btn-portfolio btn-lg ml-3" target="_blank">Browse Now</a>
                 </div>
             </div>
         </div>
