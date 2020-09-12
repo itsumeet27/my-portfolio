@@ -50,6 +50,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./about.php">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./resume.php">Resume</a>
             </li> 
             <li class="nav-item">
               <a class="nav-link" href="./portfolio.php">Portfolio</a>
