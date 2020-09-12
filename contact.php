@@ -53,7 +53,7 @@
     </div>
     
 
-    <!-- COntact form -->
+    <!-- Contact form -->
     <script type="text/javascript">
         function validateForm() {
         document.getElementById('status').innerHTML = "Sending...";
