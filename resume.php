@@ -82,7 +82,7 @@
         </div>
         <!-- Skills -->
         <div class="page-title px-4 py-3">
-            <h3 class="p-2">KEY SKILLS <hr></h3>        
+            <h3 class="p-2"><i class="fas fa-laptop"></i> &nbsp;KEY SKILLS <hr></h3>        
         </div>
         <div class="skills px-4 py-2">
             <div class="row">
@@ -139,6 +139,108 @@
                     </div> 
                 </div>
             </div>            
+        </div>
+        <!-- Projects -->
+        <div class="page-title px-4 py-3">
+            <h3 class="p-2"><i class="fas fa-tasks"></i> &nbsp;PROJECTS <hr></h3>        
+        </div>
+        <div class="mt-3 row px-4 mx-0">
+            <div class="experience col-md-6">
+                <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Associated with companies</h4>
+                <div class="canvas-framework left-pane pb-0">
+                    <h5 class="mb-3">Canvas Automation Framework</h5>
+                    <p><label>Associated with:&nbsp;</label><span>Larsen & Toubro Infotech</span></p>
+                    <p><label>Status:&nbsp;</label><span>In Progress</span></p>
+                    <p><label>Description:&nbsp;</label></p>
+                    <ul>
+                        <li>Developing an online portal to be used as a tool for various functionalities for use cases on RPA Bots Automation</li>
+                        <li>Functionalities implemented on the portal include: Discovery Catalog, Automatability Index, ROI Calculator, RPA Summary Dashboard, Botstore, etc.</li>
+                    </ul>
+                    <p><label>Technologies:&nbsp;</label><span>HTML5, CSS3, JavaScript, jQuery, AJAX, Bootstrap, PHP and MySQL</span></p>
+                </div>
+                <div class="cswd left-pane pb-0">
+                    <h5 class="mb-3">Web Design and Development using Oracle VBCS</h5>
+                    <p><label>Associated with:&nbsp;</label><span>Larsen & Toubro Infotech</span></p>
+                    <p><label>Status:&nbsp;</label><span>Completed</span></p>
+                    <p><label>Description:&nbsp;</label></p>
+                    <ul>
+                        <li>Designed the user interface using Adobe XD</li>
+                        <li>Developed the user interface into a web application using Oracle VBCS</li>
+                        <li>Created services and business objects and mapping variables for assigning fetching data using action chains and events</li>
+                    </ul>
+                    <p><label>Technologies:&nbsp;</label><span>Oracle VBCS, Bootstrap, Adobe XD</span></p>
+                </div>
+                <div class="asg left-pane pb-0">
+                    <h5 class="mb-3">ASG (APWF)</h5>
+                    <p><label>Associated with:&nbsp;</label><span>Larsen & Toubro Infotech</span></p>
+                    <p><label>Status:&nbsp;</label><span>Completed</span></p>
+                    <p><label>Description:&nbsp;</label></p>
+                    <ul>
+                        <li>Managing and Monitoring production servers of an automated application for Invoice Imaging for client</li>
+                        <li>Assigning and closing incidents/tickets generated due to errors in email attachments processed by application</li>
+                    </ul>
+                    <p><label>Technologies:&nbsp;</label><span>APWF Module</span></p>
+                </div>
+            </div>
+            <div class="experience col-md-6">
+                <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Websites developed</h4>
+                <div class="khadi left-pane pb-0">
+                    <h5 class="mb-3">Netmate Solutions</h5>
+                    <p><label>Associated with:&nbsp;</label><span>Self</span></p>
+                    <p><label>Status:&nbsp;</label><span>Completed</span></p>                    
+                    <p><label>Category:&nbsp;</label>Business</p>
+                    <p><label>Description:&nbsp;</label></p>
+                    <ul>
+                        <li>A business driven website to promote digital marketing services</li>
+                        <li>Request quotation on the website for services</li>
+                    </ul>
+                    <p><label>Technologies:&nbsp;</label><span>WordPress, CSS</span></p>
+                    <p><label>URL:&nbsp;</label><span><a href="http://netmatesolutions.com">http://netmatesolutions.com</a></span></p>
+                </div>
+                <div class="green-energy-power left-pane pb-0">
+                    <h5 class="mb-3">Green Energy Power</h5>
+                    <p><label>Associated with:&nbsp;</label><span>Self</span></p>
+                    <p><label>Status:&nbsp;</label><span>In Progress</span></p>
+                    <p><label>Category:&nbsp;</label>Portal</p>
+                    <p><label>Description:&nbsp;</label></p>
+                    <ul>
+                        <li>Developing an online portal for providing services for installation of Solar Panels.</li>
+                        <li>Online registration for solar panel installation and payment</li>
+                        <li>Complaint portal for registering queries by customers</li>
+                    </ul>
+                    <p><label>Technologies:&nbsp;</label><span>HTML5, CSS3, JavaScript, jQuery, AJAX, Bootstrap, PHP and MySQL</span></p>
+                </div>
+                <div class="filaydent left-pane pb-0">
+                    <h5 class="mb-3">Filaydent</h5>
+                    <p><label>Associated with:&nbsp;</label><span>Self</span></p>
+                    <p><label>Status:&nbsp;</label><span>Completed</span></p>                    
+                    <p><label>Category:&nbsp;</label>E-Commerce</p>
+                    <p><label>Description:&nbsp;</label></p>
+                    <ul>
+                        <li>An online shopping website for high quality dental instuments delivered by Filaydent</li>
+                        <li>Online purchase and checkout option along with user registration</li>
+                        <li>Payment Gateway Integration by PayUMoney for online payment</li>
+                        <li>Invoice generation for orders placed online. It is delivered to customer's email id</li>
+                    </ul>
+                    <p><label>Technologies:&nbsp;</label><span>WordPress, CSS</span></p>
+                    <p><label>URL:&nbsp;</label><span><a href="https://filaydent.com">https://filaydent.com</a></span></p>
+                </div>
+                <div class="khadi left-pane pb-0">
+                    <h5 class="mb-3">Khadi Premium Cosmetics</h5>
+                    <p><label>Associated with:&nbsp;</label><span>Self</span></p>
+                    <p><label>Status:&nbsp;</label><span>Completed</span></p>                    
+                    <p><label>Category:&nbsp;</label>E-Commerce</p>
+                    <p><label>Description:&nbsp;</label></p>
+                    <ul>
+                        <li>An online shopping website for high quality natural cosmetic products delivered by Luka Enterprises</li>
+                        <li>Online purchase and checkout option along with user registration</li>
+                        <li>Payment Gateway Integration by PayUMoney for online payment</li>
+                        <li>Invoice generation for orders placed online. It is delivered to customer's email id</li>
+                    </ul>
+                    <p><label>Technologies:&nbsp;</label><span>WordPress, CSS</span></p>
+                    <p><label>URL:&nbsp;</label><span><a href="https://khadipremiumcosmetics.com">https://khadipremiumcosmetics.com</a></span></p>
+                </div>
+            </div>
         </div>
     </div>
 <?php include('includes/footer.php'); ?>

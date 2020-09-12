@@ -239,7 +239,7 @@ $font-family: Roboto;
     color: var(--p-color);
   }
 
-  .education h5, .experience h5{
+  .education h5, .experience h5, .left-pane h5{
     color: var(--page-heading);
   }
 
@@ -266,7 +266,20 @@ $font-family: Roboto;
     color: var(--p-color);
     text-align: justify;
   }  
+
+  //Resume
+
+  .left-pane p a{
+    color: var(--p-color)!important;
+    text-decoration: underline;
+  }
   
+  .left-pane p a:hover{
+    color: var(--p-color)!important;
+    text-decoration: none;
+    transition-duration: 0.3s;
+  }
+
   // Portfolio
 
   .portfolio-data .card{
