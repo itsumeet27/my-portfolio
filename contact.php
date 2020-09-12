@@ -13,24 +13,30 @@
                     <form name="contact-form" method="post" enctype="multipart/form-data" id="contact-form">
                         <!-- Name input -->
                         <div class="form-outline mb-4">
-                            <input type="text" id="name" class="form-control" />
+                            <input type="text" id="name" name="name" class="form-control" />
                             <label class="form-label" for="name">Name</label>
                         </div>
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" id="email" class="form-control" />
+                            <input type="email" id="email" name="email" class="form-control" />
                             <label class="form-label" for="email">Email address</label>
+                        </div>
+
+                        <!-- Subject input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="subject" name="subject" class="form-control" />
+                            <label class="form-label" for="name">Subject</label>
                         </div>
 
                         <!-- Message input -->
                         <div class="form-outline mb-4">
-                            <textarea class="form-control" id="message" rows="4"></textarea>
+                            <textarea class="form-control" name="message" id="message" rows="4"></textarea>
                             <label class="form-label" for="message">Message</label>
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-portfolio mb-4">Send &nbsp;<i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" name="submit" class="btn btn-portfolio mb-4">Send &nbsp;<i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
                 <div class="contact-details col-md-6 px-4">
@@ -45,4 +51,23 @@
 			</div>
         </div>
     </div>
+
+    <?php
+
+        if(isset($_POST['submit'])){
+            
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $subject = $_POST['subject'];
+            $message = $_POST['message'];
+
+            $sql = "INSERT INTO contact (name,email,subject,message) VALUES ('$name','$email','$subject','$message')";
+            $insert = $db->query($sql);
+            if($insert){
+                echo "<script>alert('Thank you for contacting!')</script>";
+            }
+
+            var_dump($sql);
+        }
+    ?>
 <?php include('includes/footer.php'); ?>
