@@ -6,7 +6,7 @@
 		die();
 	}
 
-	require_once $_SERVER['DOCUMENT_ROOT'].'/website-practice/config.php';
+	require_once $_SERVER['DOCUMENT_ROOT'].'/new-portfolio/config.php';
 	
 
 ?>
