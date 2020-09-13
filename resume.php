@@ -1,5 +1,5 @@
 <?php include('includes/header.php'); ?>
-    <div class="container-fluid">
+    <div class="container-fluid pb-5">
         <div class="page-title p-4">
             <h1 class="p-2">RESUME <hr></h1>        
         </div>
