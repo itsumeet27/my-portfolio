@@ -32,6 +32,28 @@ html[data-theme='dark'] {
   ;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--bg-panel);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--page-heading);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--title-heading);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
 html.transition,
 html.transition *,
 html.transition *:before,
@@ -279,6 +301,11 @@ label {
   text-decoration: none;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
+}
+
+.progress-bar {
+  background-color: var(--p-color) !important;
+  color: var(--bg);
 }
 
 .portfolio-data .card {

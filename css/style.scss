@@ -33,6 +33,28 @@ $font-family: Roboto;
     --box-shadow: 1px 1px 5px 1px rgb(255 255 255 / 20%)
   }
 
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--bg-panel); 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--page-heading); 
+
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--title-heading);
+    transition-duration: 0.3s; 
+  }
+
   html.transition,
   html.transition *,
   html.transition *:before,
@@ -278,6 +300,11 @@ $font-family: Roboto;
     color: var(--p-color)!important;
     text-decoration: none;
     transition-duration: 0.3s;
+  }
+
+  .progress-bar{
+    background-color: var(--p-color)!important;
+    color: var(--bg);
   }
 
   // Portfolio

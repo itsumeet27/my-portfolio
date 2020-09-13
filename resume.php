@@ -145,7 +145,7 @@
             <h3 class="p-2"><i class="fas fa-tasks"></i> &nbsp;PROJECTS <hr></h3>        
         </div>
         <div class="mt-3 row px-4 mx-0">
-            <div class="experience col-md-6">
+            <div class="experience col-md-6" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                 <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Associated with companies</h4>
                 <div class="canvas-framework left-pane pb-0">
                     <h5 class="mb-3">Canvas Automation Framework</h5>
@@ -182,7 +182,7 @@
                     <p><label>Technologies:&nbsp;</label><span>APWF Module</span></p>
                 </div>
             </div>
-            <div class="experience col-md-6">
+            <div class="experience col-md-6" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                 <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Websites developed</h4>
                 <div class="khadi left-pane pb-0">
                     <h5 class="mb-3">Netmate Solutions</h5>
