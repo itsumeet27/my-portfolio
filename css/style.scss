@@ -8,6 +8,10 @@ $font-family: Roboto;
   }
 
   html{
+    scroll-behavior: smooth;
+  }
+
+  html{
     --bg: #fcfcfc;
     --frame-padding: rgb(241, 241, 241);
     --bg-panel: #f3f3f39e;
