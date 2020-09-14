@@ -5,61 +5,70 @@
 <?php
   $dbpath = '';
   if(isset($_GET['add']) || isset($_GET['edit'])){
-      $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):'');
-      $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):'');
-      $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):'');
-      $saved_image = '';
+    $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):'');
+    $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):'');
+    $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):'');
+    $saved_image = '';
+    if(isset($_GET['edit'])){
+        $edit_id = (int)$_GET['edit'];
+        $portfolioResult = $db->query("SELECT * FROM portfolio WHERE id = '$edit_id'");
+        $portfolio = mysqli_fetch_assoc($portfolioResult);
+
+        $a = $portfolio['technologies'];
+        $technologies = explode(",",$a);
+
+        $dbpath = $saved_image;
+        $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):$portfolio['name']);
+        $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):$portfolio['description']);
+        $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):$portfolio['category']);
+    }
+
+    if($_POST){
+      // Uploading Portfolio Image
+      $imagefilename = $_FILES['image']['name'];
+      $imagepath = BASEURL.'img/portfolio';
+      $imagedestination = $imagepath . '/' . $imagefilename;
+      $imageextension = pathinfo($imagefilename, PATHINFO_EXTENSION);
+      $imagefile = $_FILES['image']['tmp_name'];
+      $imagesize = $_FILES['image']['size'];
+
+      if (!in_array($imageextension, ['jpg','jpeg','png','gif','PNG','JPG','GIF'])) {
+          echo "You file extension must be jpg, jpeg, png, gif for image files";
+      } elseif ($_FILES['image']['size'] > 10000000) { // file shouldn't be larger than 100Megabyte
+          echo "Files are too large!";
+      } else {
+          move_uploaded_file($imagefile, $imagedestination);
+      }
+
+      if(isset($_GET['add'])){                    
+
+          $a = $_POST['technologies'];
+          $technologies = implode(',',$a);
+          
+          $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies) VALUES ('$name','$description','$category','$imagefilename','$technologies')";
+      }
+
       if(isset($_GET['edit'])){
-          $edit_id = (int)$_GET['edit'];
-          $portfolioResult = $db->query("SELECT * FROM portfolio WHERE id = '$edit_id'");
-          $portfolio = mysqli_fetch_assoc($portfolioResult);
 
-          $a = $portfolio['technologies'];
-          $technologies = explode(",",$a);
+          $b = $_POST['technologies'];
+          $technologies_u = implode(",",$b);
 
-          $dbpath = $saved_image;
-          $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):$portfolio['name']);
-          $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):$portfolio['description']);
-          $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):$portfolio['category']);
+          $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies_u' WHERE id = '$edit_id'";
       }
 
-      if($_POST){
-          // Uploading Portfolio Image
-          $imagefilename = $_FILES['image']['name'];
-          $imagepath = BASEURL.'img/portfolio';
-          $imagedestination = $imagepath . '/' . $imagefilename;
-          $imageextension = pathinfo($imagefilename, PATHINFO_EXTENSION);
-          $imagefile = $_FILES['image']['tmp_name'];
-          $imagesize = $_FILES['image']['size'];
-
-          if (!in_array($imageextension, ['jpg','jpeg','png','gif','PNG','JPG','GIF'])) {
-              echo "You file extension must be jpg, jpeg, png, gif for image files";
-          } elseif ($_FILES['image']['size'] > 10000000) { // file shouldn't be larger than 100Megabyte
-              echo "Files are too large!";
-          } else {
-              move_uploaded_file($imagefile, $imagedestination);
-          }
-
-          if(isset($_GET['add'])){                    
-
-              $a = $_POST['technologies'];
-              $technologies = implode(',',$a);
-              
-              $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies) VALUES ('$name','$description','$category','$imagefilename','$technologies')";
-          }
-
-          if(isset($_GET['edit'])){
-
-              $b = $_POST['technologies'];
-              $technologies_u = implode(",",$b);
-
-              $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies_u' WHERE id = '$edit_id'";
-          }
-
-          if($db->query($insertSql)){
-              echo "<script>alert('Data Saved Successfully')</script>";
-          }
+      if($db->query($insertSql)){
+          echo "<script>alert('Data Saved Successfully')</script>";
       }
+    }
+  }
+
+  if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $del = "DELETE FROM portfolio WHERE id = '$del_id'";
+    $run_del = $db->query($del);
+    if($run_del){
+      echo "<script>alert('Data Deleted Successfully')</script>";
+    }
   }
 ?>
 
