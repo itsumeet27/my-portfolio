@@ -1,4 +1,7 @@
-<?php include('includes/header.php'); ?>
+<?php 
+    include('includes/header.php'); 
+    include('includes/init.php');
+?>
     <div class="container-fluid pb-5">
         <div class="page-title p-4">
             <h1 class="p-2">RESUME <hr></h1>        
@@ -144,102 +147,46 @@
         <div class="page-title px-4 py-3">
             <h3 class="p-2"><i class="fas fa-tasks"></i> &nbsp;PROJECTS <hr></h3>        
         </div>
-        <div class="mt-3 row px-4 mx-0">
+        <div class="mt-3 row px-4 mx-0">                
             <div class="experience col-md-6" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                 <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Associated with companies</h4>
-                <div class="canvas-framework left-pane pb-0">
-                    <h5 class="mb-3">Canvas Automation Framework</h5>
-                    <p><label>Associated with:&nbsp;</label><span>Larsen & Toubro Infotech</span></p>
-                    <p><label>Status:&nbsp;</label><span>In Progress</span></p>
+                <?php 
+                    $projects = "SELECT * FROM projects WHERE associated_with <> 'Self'";
+                    $run_projects = $db->query($projects);
+                    if(mysqli_num_rows($run_projects) > 0){
+                        while($row_projects = mysqli_fetch_assoc($run_projects)){
+
+                ?>
+                <div class="left-pane pb-0">
+                    <h5 class="mb-3"><?=$row_projects['name']; ?></h5>
+                    <p><label>Associated with:&nbsp;</label><span><?=$row_projects['associated_with']; ?></span></p>
+                    <p><label>Status:&nbsp;</label><span><?=$row_projects['status']; ?></span></p>
                     <p><label>Description:&nbsp;</label></p>
-                    <ul>
-                        <li>Developing an online portal to be used as a tool for various functionalities for use cases on RPA Bots Automation</li>
-                        <li>Functionalities implemented on the portal include: Discovery Catalog, Automatability Index, ROI Calculator, RPA Summary Dashboard, Botstore, etc.</li>
-                    </ul>
-                    <p><label>Technologies:&nbsp;</label><span>HTML5, CSS3, JavaScript, jQuery, AJAX, Bootstrap, PHP and MySQL</span></p>
+                    <p><?=nl2br($row_projects['description']); ?></p>
+                    <p><label>Technologies:&nbsp;</label><span><?=$row_projects['technologies']; ?></span></p>
                 </div>
-                <div class="cswd left-pane pb-0">
-                    <h5 class="mb-3">Web Design and Development using Oracle VBCS</h5>
-                    <p><label>Associated with:&nbsp;</label><span>Larsen & Toubro Infotech</span></p>
-                    <p><label>Status:&nbsp;</label><span>Completed</span></p>
-                    <p><label>Description:&nbsp;</label></p>
-                    <ul>
-                        <li>Designed the user interface using Adobe XD</li>
-                        <li>Developed the user interface into a web application using Oracle VBCS</li>
-                        <li>Created services and business objects and mapping variables for assigning fetching data using action chains and events</li>
-                    </ul>
-                    <p><label>Technologies:&nbsp;</label><span>Oracle VBCS, Bootstrap, Adobe XD</span></p>
-                </div>
-                <div class="asg left-pane pb-0">
-                    <h5 class="mb-3">ASG (APWF)</h5>
-                    <p><label>Associated with:&nbsp;</label><span>Larsen & Toubro Infotech</span></p>
-                    <p><label>Status:&nbsp;</label><span>Completed</span></p>
-                    <p><label>Description:&nbsp;</label></p>
-                    <ul>
-                        <li>Managing and Monitoring production servers of an automated application for Invoice Imaging for client</li>
-                        <li>Assigning and closing incidents/tickets generated due to errors in email attachments processed by application</li>
-                    </ul>
-                    <p><label>Technologies:&nbsp;</label><span>APWF Module</span></p>
-                </div>
+                <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No data to display</p>"; } ?>
             </div>
             <div class="experience col-md-6" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                 <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Websites developed</h4>
-                <div class="khadi left-pane pb-0">
-                    <h5 class="mb-3">Netmate Solutions</h5>
-                    <p><label>Associated with:&nbsp;</label><span>Self</span></p>
-                    <p><label>Status:&nbsp;</label><span>Completed</span></p>                    
-                    <p><label>Category:&nbsp;</label>Business</p>
+                <?php 
+                    $websites = "SELECT * FROM projects WHERE associated_with = 'Self'";
+                    $run_websites = $db->query($websites);
+                    if(mysqli_num_rows($run_websites) > 0){
+                        while($row_websites = mysqli_fetch_assoc($run_websites)){
+
+                ?>
+                <div class="left-pane pb-0">
+                    <h5 class="mb-3"><?=$row_websites['name']; ?></h5>
+                    <p><label>Associated with:&nbsp;</label><span><?=$row_websites['associated_with']; ?></span></p>
+                    <p><label>Status:&nbsp;</label><span><?=$row_websites['status']; ?></span></p>                    
+                    <p><label>Category:&nbsp;</label><?=$row_websites['category']; ?></p>
                     <p><label>Description:&nbsp;</label></p>
-                    <ul>
-                        <li>A business driven website to promote digital marketing services</li>
-                        <li>Request quotation on the website for services</li>
-                    </ul>
-                    <p><label>Technologies:&nbsp;</label><span>WordPress, CSS</span></p>
-                    <p><label>URL:&nbsp;</label><span><a href="http://netmatesolutions.com">http://netmatesolutions.com</a></span></p>
+                    <p><?=nl2br($row_websites['description']); ?></p>
+                    <p><label>Technologies:&nbsp;</label><span><?=$row_websites['technologies']; ?></span></p>
+                    <p><label>URL:&nbsp;</label><span><a href="<?=$row_websites['url']; ?>"><?=$row_websites['url']; ?></a></span></p>
                 </div>
-                <div class="green-energy-power left-pane pb-0">
-                    <h5 class="mb-3">Green Energy Power</h5>
-                    <p><label>Associated with:&nbsp;</label><span>Self</span></p>
-                    <p><label>Status:&nbsp;</label><span>In Progress</span></p>
-                    <p><label>Category:&nbsp;</label>Portal</p>
-                    <p><label>Description:&nbsp;</label></p>
-                    <ul>
-                        <li>Developing an online portal for providing services for installation of Solar Panels.</li>
-                        <li>Online registration for solar panel installation and payment</li>
-                        <li>Complaint portal for registering queries by customers</li>
-                    </ul>
-                    <p><label>Technologies:&nbsp;</label><span>HTML5, CSS3, JavaScript, jQuery, AJAX, Bootstrap, PHP and MySQL</span></p>
-                </div>
-                <div class="filaydent left-pane pb-0">
-                    <h5 class="mb-3">Filaydent</h5>
-                    <p><label>Associated with:&nbsp;</label><span>Self</span></p>
-                    <p><label>Status:&nbsp;</label><span>Completed</span></p>                    
-                    <p><label>Category:&nbsp;</label>E-Commerce</p>
-                    <p><label>Description:&nbsp;</label></p>
-                    <ul>
-                        <li>An online shopping website for high quality dental instuments delivered by Filaydent</li>
-                        <li>Online purchase and checkout option along with user registration</li>
-                        <li>Payment Gateway Integration by PayUMoney for online payment</li>
-                        <li>Invoice generation for orders placed online. It is delivered to customer's email id</li>
-                    </ul>
-                    <p><label>Technologies:&nbsp;</label><span>WordPress, CSS</span></p>
-                    <p><label>URL:&nbsp;</label><span><a href="https://filaydent.com">https://filaydent.com</a></span></p>
-                </div>
-                <div class="khadi left-pane pb-0">
-                    <h5 class="mb-3">Khadi Premium Cosmetics</h5>
-                    <p><label>Associated with:&nbsp;</label><span>Self</span></p>
-                    <p><label>Status:&nbsp;</label><span>Completed</span></p>                    
-                    <p><label>Category:&nbsp;</label>E-Commerce</p>
-                    <p><label>Description:&nbsp;</label></p>
-                    <ul>
-                        <li>An online shopping website for high quality natural cosmetic products delivered by Luka Enterprises</li>
-                        <li>Online purchase and checkout option along with user registration</li>
-                        <li>Payment Gateway Integration by PayUMoney for online payment</li>
-                        <li>Invoice generation for orders placed online. It is delivered to customer's email id</li>
-                    </ul>
-                    <p><label>Technologies:&nbsp;</label><span>WordPress, CSS</span></p>
-                    <p><label>URL:&nbsp;</label><span><a href="https://khadipremiumcosmetics.com">https://khadipremiumcosmetics.com</a></span></p>
-                </div>
+                <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No data to display</p>"; } ?>
             </div>
         </div>
     </div>
