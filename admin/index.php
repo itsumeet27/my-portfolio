@@ -3,8 +3,10 @@
 	include ('../includes/init.php');
 ?>
     
-    <div class="container-fluid">
-        <h1 class="h1-responsive p-3 font-weight-bold text-center">Index Page</h1>
-    </div>  
+    
+      <div class="container pt-3">
+        <h4 class="text-center">Index Page</h4>
+      </div>
+    </main> 
 
 <?php include ('includes/footer.php');?>
