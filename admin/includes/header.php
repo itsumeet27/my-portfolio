@@ -4,9 +4,13 @@
     return htmlentities($dirty,ENT_QUOTES,"UTF-8");
   }
 ?>
+<?php
+  $path=$_SERVER['PHP_SELF'];
+  $page=basename($path); 
+?>
 <html lang="en">
   <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Experienced Web Developer with a demonstrated history of working in the higher education industry. Skilled in Web framework such as Django, and PHP, WordPress, Java, HTML, CSS, Javascript, Bootstrap, Responsive Web Design, and Leadership.">
@@ -53,14 +57,20 @@
             padding-left: 240px;
           }
         }
+
+        .sidebar .list-group .list-group-item.active{
+          color: #fff;
+          background: #555!important;
+          border-color: #555!important;
+        }
       </style>
 
       <!-- Sidebar -->
       <div class="sidebar pt-3 shadow-5">
         <div class="list-group list-group-flush">
-          <a href="portfolio.php" class="list-group-item list-group-item-action ripple">Portfolio</a>
-          <a href="projects.php" class="list-group-item list-group-item-action ripple">Projects</a>
-          <a href="contact.php" class="list-group-item list-group-item-action ripple">Contact</a>
+          <a href="portfolio.php" class="list-group-item list-group-item-action ripple <?php if($page == 'portfolio.php'){ echo 'active'; }?>">Portfolio</a>
+          <a href="projects.php" class="list-group-item list-group-item-action ripple <?php if($page == 'projects.php'){ echo 'active'; }?>">Projects</a>
+          <a href="contact.php" class="list-group-item list-group-item-action ripple <?php if($page == 'contact.php'){ echo 'active'; }?>">Contact</a>
         </div>
       </div>
       <!-- Sidebar -->
@@ -91,7 +101,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarExample01">
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-              <li class="nav-item active">
+              <li class="nav-item <?php if($page == 'index.php'){ echo 'active'; }?>">
                 <a class="nav-link" aria-current="page" href="index.php">Home</a>
               </li>
             </ul>

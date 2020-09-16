@@ -1,6 +1,6 @@
 <?php 
-  include ('includes/header.php');
-  include ('../includes/init.php');
+	include ('includes/header.php');
+	include ('../includes/init.php');
 ?>
 <?php
   $dbpath = '';
@@ -72,50 +72,24 @@
   }
 ?>
 
-  <style type="text/css">
-    .btn-floating{      
-      cursor: pointer;
-      border-radius: 50%;
-      overflow: hidden;
-      vertical-align: middle;
-      box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
-      transition: all .2s ease-in-out;
-
-    }
-
-    .btn-floating{
-      width: 60px;
-      height: 60px;
-      border:none!important;
-    }
-
-    .options{
-      width: 45px;
-        height: 45px;
-        border:none!important;
-    }
-
-    .remove_file{
-      width: 35px;
-        height: 35px;
-        border:none!important;
-    }
-  </style>
+  <div class="container pt-3">
+    <h4 class="text-center">List of Portfolio</h4>
+  </div>
 	<div class="container-fluid" style="margin: 2em 0;">
-    <button type="button" class="btn btn-primary btn-floating-options" data-toggle="modal" data-target="#exampleModal">
-      <i class="fas fa-plus-circle" style="color:#fff!important"></i>
+    <button type="button" class="btn btn-primary btn-floating" title="<?=((isset($_GET['edit']))?'Edit Portfolio':'Add New Portfolio');?>" data-toggle="modal" data-target="#exampleModal">
+      <i class="fas fa-<?=((isset($_GET['edit']))?'edit':'plus-circle');?>" style="color:#fff!important"></i>
     </button>
-    <span class="text-justify ml-3"><?=((isset($_GET['edit']))?'Edit':'Add New');?> Portfolio</span>
 
     <div class="table-responsive mt-3">
       <table class="table table-sm table-striped table-bordered">
         <thead class="elegant-color white-text">
           <th></th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Category</th>
-          <th>Image</th>
-          <th>Technologies</th>
+          <th></th>
+          <th style="font-size:13px">Name</th>
+          <th style="font-size:13px">Description</th>
+          <th style="font-size:13px">Category</th>
+          <th width="125" style="font-size:13px">Image</th>
+          <th style="font-size:13px">Technologies</th>
         </thead>
         <tbody>
           <?php
@@ -127,14 +101,16 @@
           ?>
           <tr>
             <td>
-              <a href="portfolio.php?edit=<?=$portfolio['id'];?>"><i class="fas fa-edit" title="Edit"></i></a>
-              <a href="portfolio.php?delete=<?=$portfolio['id'];?>"><i class="fas fa-trash" title="Delete"></i></a>
+              <a href="portfolio.php?edit=<?=$portfolio['id'];?>" style="font-size:13px;color:#555"><i class="fas fa-edit" title="Edit"></i></a>
             </td>
-            <td><?=$portfolio['name'];?></td>
-            <td><?=$portfolio['description'];?></td>
-            <td><?=$portfolio['category'];?></td>
-            <td width="125"><img src="../img/portfolio/<?=$portfolio['image'];?>" class="img-fluid img-responsive" style="width: 100%"></td>
-            <td><?=$portfolio['technologies'];?></td>
+            <td>
+              <a href="portfolio.php?delete=<?=$portfolio['id'];?>" style="font-size:13px;color:#555"><i class="fas fa-trash" title="Delete"></i></a>
+            </td>
+            <td style="font-size:13px"><?=$portfolio['name'];?></td>
+            <td style="font-size:13px"><?=$portfolio['description'];?></td>
+            <td style="font-size:13px"><?=$portfolio['category'];?></td>
+            <td style="font-size:13px"><img src="../img/portfolio/<?=$portfolio['image'];?>" class="img-fluid img-responsive" style="width: 100%"></td>
+            <td style="font-size:13px"><?=$portfolio['technologies'];?></td>
           </tr>
           <?php endwhile; } ?>
         </tbody>

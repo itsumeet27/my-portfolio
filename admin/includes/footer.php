@@ -5,19 +5,19 @@
 
     <!-- Social icons -->
     <div class="pt-3 footer-social">
-      <a href="https://www.facebook.com/itsumeet" target="_blank">
+      <a href="https://www.facebook.com/itsumeet" target="_blank" style="color:#555">
         <i class="fab fa-facebook-f mr-3" title="Facebook"></i>
       </a>
-      <a href="https://linkedin.com/in/itsumeet" target="_blank">
+      <a href="https://linkedin.com/in/itsumeet" target="_blank" style="color:#555">
         <i class="fab fa-linkedin mr-3" title="Linkedin"></i>
       </a>
-      <a href="https://twitter.com/itsumeet27" target="_blank">
+      <a href="https://twitter.com/itsumeet27" target="_blank" style="color:#555">
         <i class="fab fa-twitter mr-3" title="Twitter"></i>
       </a>
-      <a href="https://instagram.com/itsumeet27" target="_blank">
+      <a href="https://instagram.com/itsumeet27" target="_blank" style="color:#555">
         <i class="fab fa-instagram mr-3" title="Instagram"></i>
       </a>
-      <a href="https://github.com/itsumeet27" target="_blank">
+      <a href="https://github.com/itsumeet27" target="_blank" style="color:#555">
         <i class="fab fa-github mr-3" title="GitHub"></i>
       </a>
     </div>

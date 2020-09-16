@@ -19,7 +19,6 @@
       $a = $project['technologies'];
       $technologies = explode(",",$a);
 
-      $dbpath = $saved_image;
       $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):$project['name']);
       $associated_with = ((isset($_POST['associated_with']) && $_POST['associated_with'] != '')?sanitize($_POST['associated_with']):$project['associated_with']);
       $status = ((isset($_POST['status']) && $_POST['status'] != '')?sanitize($_POST['status']):$project['status']);
@@ -59,52 +58,26 @@
   }
 ?> 
 
-  <style type="text/css">
-    .btn-floating{      
-      cursor: pointer;
-      border-radius: 50%;
-      overflow: hidden;
-      vertical-align: middle;
-      box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
-      transition: all .2s ease-in-out;
-
-    }
-
-    .btn-floating{
-      width: 60px;
-      height: 60px;
-      border:none!important;
-    }
-
-    .options{
-      width: 45px;
-        height: 45px;
-        border:none!important;
-    }
-
-    .remove_file{
-      width: 35px;
-        height: 35px;
-        border:none!important;
-    }
-  </style>
+  <div class="container pt-3">
+    <h4 class="text-center">List of Projects</h4>
+  </div>
   <div class="container-fluid" style="margin: 2em 0;">
-    <button type="button" class="btn btn-primary btn-floating-options" data-toggle="modal" data-target="#exampleModal">
-      <i class="fas fa-plus-circle" style="color:#fff!important"></i>
+    <button type="button" class="btn btn-primary btn-floating" title="<?=((isset($_GET['edit']))?'Edit Project':'Add New Project');?>" data-toggle="modal" data-target="#exampleModal">
+      <i class="fas fa-<?=((isset($_GET['edit']))?'edit':'plus-circle');?>" style="color:#fff!important"></i>
     </button>
-    <span class="text-justify ml-3"><?=((isset($_GET['edit']))?'Edit':'Add New');?> Project</span>
 
     <div class="table-responsive mt-3">
       <table class="table table-sm table-striped table-bordered">
         <thead class="elegant-color white-text">
           <th></th>
-          <th width="250" class="text-center">Name</th>
-          <th width="250" class="text-center">Associated with</th>
-          <th width="250" class="text-center">Status</th>
-          <th width="250" class="text-center">Description</th>
-          <th width="250" class="text-center">Technologies</th>
-          <th width="250" class="text-center">Category</th>
-          <th width="250" class="text-center">URL</th>
+          <th></th>
+          <th width="250" style="font-size:13px">Name</th>
+          <th width="250" style="font-size:13px">Associated with</th>
+          <th width="250" style="font-size:13px">Status</th>
+          <th width="250" style="font-size:13px">Description</th>
+          <th width="250" style="font-size:13px">Technologies</th>
+          <th width="250" style="font-size:13px">Category</th>
+          <th width="250" style="font-size:13px">URL</th>
         </thead>
         <tbody>
           <?php
@@ -116,13 +89,15 @@
           ?>
           <tr>
             <td>
-              <a href="projects.php?edit=<?=$project['id'];?>"><i class="fas fa-edit" title="Edit"></i></a>
-              <a href="projects.php?delete=<?=$project['id'];?>"><i class="fas fa-trash" title="Delete"></i></a>
+              <a href="projects.php?edit=<?=$project['id'];?>" style="font-size:13px;color:#555"><i class="fas fa-edit" title="Edit"></i></a>
             </td>
-            <td><?=$project['name'];?></td>
-            <td><?=$project['associated_with'];?></td>
-            <td><?=$project['status'];?></td>
             <td>
+              <a href="projects.php?delete=<?=$project['id'];?>" style="font-size:13px;color:#555"><i class="fas fa-trash" title="Delete"></i></a>
+            </td>
+            <td style="font-size:13px"><?=$project['name'];?></td>
+            <td style="font-size:13px"><?=$project['associated_with'];?></td>
+            <td style="font-size:13px"><?=$project['status'];?></td>
+            <td style="font-size:13px">
               <?php
                 if(strlen($project['description'])>50){ 
                   $project['description']=substr($project['description'],0,50).'. . . <a class="font-weight-bold" href="" title="'.$project['description'].'">Read more</a>'; 
@@ -130,9 +105,9 @@
               ?>
               <?=nl2br($project['description']);?>
             </td>
-            <td><?=$project['technologies'];?></td>
-            <td><?=$project['category'];?></td>
-            <td><?=$project['url'];?></td>
+            <td style="font-size:13px"><?=$project['technologies'];?></td>
+            <td style="font-size:13px"><?=$project['category'];?></td>
+            <td style="font-size:13px"><?=$project['url'];?></td>
           </tr>
           <?php endwhile; } ?>
         </tbody>
