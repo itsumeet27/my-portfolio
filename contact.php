@@ -1,6 +1,18 @@
 <?php 
-    include('includes/header.php');
-    include('includes/init.php');
+  include('includes/header.php');
+  include('includes/init.php'); 
+
+  $sql = "SELECT * FROM about";
+  $result = $db->query($sql);
+  while($row = mysqli_fetch_assoc($result)){
+    $name = $row['name'];
+    $short_desc = $row['feature_desc'];
+    $salutation = $row['salutation'];
+    $description = $row['about_desc'];
+    $address = $row['address'];
+    $mobile = $row['mobile'];
+    $email = $row['email'];
+  } 
 ?>
     <div class="container-fluid">
         <div class="page-title p-4">
@@ -41,9 +53,9 @@
                 </div>
                 <div class="contact-details col-md-6 px-4">
                     <h4 class="pb-3">REACH OUT TODAY</h4>
-                    <p class="py-2">&nbsp;<i class="fas fa-map-marker-alt fa-2x"></i>&nbsp;&nbsp;&nbsp;302, B-7, Sector-9, Shanti Nagar, Mira Road (E), Thane-401107</p>
-                    <p class="py-2">&nbsp;<i class="fas fa-mobile-alt fa-2x"></i>&nbsp;&nbsp;&nbsp;<a href="tel:+918286864601">+91 82868 64601</a></p>
-                    <p class="py-2"><i class="fas fa-envelope fa-2x"></i>&nbsp;&nbsp;&nbsp;<a href="mailto:sksksharma0@gmail.com">sksksharma0@gmail.com</a></p>
+                    <p class="py-2">&nbsp;<i class="fas fa-map-marker-alt fa-2x"></i>&nbsp;&nbsp;&nbsp;<?=$address;?></p>
+                    <p class="py-2">&nbsp;<i class="fas fa-mobile-alt fa-2x"></i>&nbsp;&nbsp;&nbsp;<a href="tel:<?=$mobile;?>"><?=$mobile;?></a></p>
+                    <p class="py-2"><i class="fas fa-envelope fa-2x"></i>&nbsp;&nbsp;&nbsp;<a href="mailto:<?=$email;?>"><?=$email;?></a></p>
                 </div>
             </div>
             <div class="location px-2 mb-4">

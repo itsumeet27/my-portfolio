@@ -1,15 +1,30 @@
-<?php include('includes/header.php'); ?>
+<?php 
+  include('includes/header.php');
+  include('includes/init.php'); 
+
+  $sql = "SELECT * FROM about";
+  $result = $db->query($sql);
+  while($row = mysqli_fetch_assoc($result)){
+    $name = $row['name'];
+    $short_desc = $row['feature_desc'];
+    $salutation = $row['salutation'];
+    $description = $row['about_desc'];
+    $address = $row['address'];
+    $mobile = $row['mobile'];
+    $email = $row['email'];
+  } 
+?>
   <!-- Carousel wrapper -->
   <div class="banner row animated fadeIn slow">
     <div class="col-md-6 details">
-      <h6 class="text-justify h6-responsive">Hello everyone, I am!</h6>
-      <h1 class="text-justify h1-responsive">Sumeet Sharma</h1>
+      <h6 class="text-justify h6-responsive"><?=$salutation;?></h6>
+      <h1 class="text-justify h1-responsive"><?=$name;?></h1>
       <hr class="title">
-      <p class="text-justify lead">Graduate Engineering Trainee | Web Developer | WordPress Developer</p>
-      <p class="lead text-justify">
+      <p class="text-justify lead"><?=nl2br($short_desc);?></p>
+      <!-- <p class="lead text-justify">
         A hard working individual with the intent of delivering products and services in a timely and most
         efficient manner.
-      </p>
+      </p> -->
       <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=100007900753991" target="_blank">
           <i class="fab fa-facebook-f" title="Facebook"></i>
