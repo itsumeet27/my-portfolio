@@ -4,7 +4,7 @@
 ?>
 
     <div class="container pt-3">
-        <h4 class="text-center">List of all contacts</h4>
+        <h3 class="text-center">List of all contacts</h3>
     </div>
     <div class="table-responsive container-fluid mt-4">
         <table class="table table-sm table-striped table-bordered">

@@ -1,162 +1,134 @@
-<?php 
-	include ('includes/header.php');
-  include ('../includes/init.php');
-  
-  $sql = "SELECT * FROM about";
-  $result = $db->query($sql);
-
-  if(isset($_GET['add']) || isset($_GET['edit'])){
-    $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):'');
-    $short_desc = ((isset($_POST['short_desc']) && $_POST['short_desc'] != '')?sanitize($_POST['short_desc']):'');
-    $salutation = ((isset($_POST['salutation']) && $_POST['salutation'] != '')?sanitize($_POST['salutation']):'');
-    $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):'');
-    $address = ((isset($_POST['address']) && $_POST['address'] != '')?sanitize($_POST['address']):'');
-    $mobile = ((isset($_POST['mobile']) && $_POST['mobile'] != '')?sanitize($_POST['mobile']):'');
-    $email = ((isset($_POST['email']) && $_POST['email'] != '')?sanitize($_POST['email']):'');
-
-    if(isset($_GET['edit'])){
-      $edit_id = (int)$_GET['edit'];
-      $aboutResult = $db->query("SELECT * FROM about WHERE id = '$edit_id'");
-      $about = mysqli_fetch_assoc($aboutResult);
-
-      $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):$about['name']);
-      $short_desc = ((isset($_POST['short_desc']) && $_POST['short_desc'] != '')?sanitize($_POST['short_desc']):$about['short_desc']);
-      $salutation = ((isset($_POST['salutation']) && $_POST['salutation'] != '')?sanitize($_POST['salutation']):$about['salutation']);
-      $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):$about['description']);
-      $address = ((isset($_POST['address']) && $_POST['address'] != '')?sanitize($_POST['address']):$about['address']);
-      $mobile = ((isset($_POST['mobile']) && $_POST['mobile'] != '')?sanitize($_POST['mobile']):$about['mobile']);
-      $email = ((isset($_POST['email']) && $_POST['email'] != '')?sanitize($_POST['email']):$about['email']);
-    }
-    if($_POST){
-      if(isset($_GET['add'])){        
-        $insertSql = "INSERT INTO about (feature_desc,salutation,name,about_desc,address,mobile,email) VALUES ('$short_desc','$salutation','$name','$description','$address','$mobile','$email')";
-      }
-
-      if(isset($_GET['edit'])){
-        $insertSql = "UPDATE projects SET feature_desc = '$short_desc', salutation = '$salutation', name = '$name', about_desc = '$description', address = '$address', mobile = '$mobile', email = '$email' WHERE id = '$edit_id'";
-      }
-      if($db->query($insertSql)){
-        echo "<script>alert('Data Saved Successfully')</script>";
-      }
-    }
-  }
-?>
+<?php include ('includes/header.php'); ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 
   <div class="container pt-3">
-    <h4 class="text-center">Index Page</h4>
+    <h3 class="text-center">Index Page</h3>
   </div>
   <div class="container-fluid" style="margin: 2em 0;">
-    <button type="button" class="btn btn-primary btn-floating" title="<?=((isset($_GET['edit']))?'Edit Data':'Add Data');?>" data-toggle="modal" data-target="#exampleModal">
-      <i class="fas fa-<?=((isset($_GET['edit']))?'edit':'plus-circle');?>" style="color:#fff!important"></i>
-    </button>
+    <h5 class="text-justify py-2">Profile Details <hr style="width: 75px;border:2px solid #666;border-radius:50%"></h5>
+    <span id="result"></span>
+    <div id="live_data"></div> 
+  </div>
 
-    <div class="profile-data mt-3">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="table-responsive">
-            <table class="table table-bordered table-sm">
-              <?php 
-                while($row = mysqli_fetch_assoc($result)){
-                  $name = $row['name'];
-                  $short_desc = $row['feature_desc'];
-                  $salutation = $row['salutation'];
-                  $description = $row['about_desc'];
-                  $address = $row['address'];
-                  $mobile = $row['mobile'];
-                  $email = $row['email'];
-                } 
-              ?>
-              <tr>
-                <th style="font-size:14px">Name</th>
-                <td style="font-size:14px"><?=$name;?></td>
-              </tr>
-              <tr>
-                <th style="font-size:14px">Short Description</th>
-                <td style="font-size:14px"><?=nl2br($short_desc);?></td>
-              </tr>
-              <tr>
-                <th style="font-size:14px">Salutation</th>
-                <td style="font-size:14px"><?=$salutation;?></td>
-              </tr>
-              <tr>
-                <th style="font-size:14px">About Description</th>
-                <td style="font-size:14px"><?=nl2br($description);?></td>
-              </tr>
-              <tr>
-                <th style="font-size:14px">Address</th>
-                <td style="font-size:14px"><?=$address;?></td>
-              </tr>
-              <tr>
-                <th style="font-size:14px">Mobile</th>
-                <td style="font-size:14px"><?=$mobile;?></td>
-              </tr>
-              <tr>
-                <th style="font-size:14px">Email</th>
-                <td style="font-size:14px"><?=$email;?></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="col-md-6"></div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <form class="" name="index" id="index" action="index.php?<?=((isset($_GET['edit']))?'edit='.$edit_id:'add=1');?>" method="post" enctype="multipart/form-data" style="color: #757575;" action="#!">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><?=((isset($_GET['edit']))?'Edit':'Add New');?> Portfolio</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- Name -->
-              <div class="form-outline">
-                <input type="text" id="name" name="name" class="form-control" value="<?=((isset($_GET['edit']))?$name:'');?>">
-                <label for="name" class="form-label">Name</label>
-              </div>
-              <!-- Salutation -->
-              <div class="mt-4 form-outline">
-                <input type="text" id="salutation" name="salutation" class="form-control" value="<?=((isset($_GET['edit']))?$salutation:'');?>">
-                <label for="salutation" class="form-label">Salutation</label>
-              </div>
-              <!-- Short Description -->
-              <div class="mt-4 form-outline">
-              <textarea id="short_desc" name="short_desc" class="form-control"><?=((isset($_GET['edit']))?$short_desc:'');?></textarea>
-                <label for="short_desc" class="form-label">Short Description</label>
-              </div>
-              <!-- Description -->
-              <div class="mt-4 form-outline">
-                <textarea id="description" name="description" class="form-control"><?=((isset($_GET['edit']))?$description:'');?></textarea>
-                <label for="description" class="form-label">About Description</label>
-              </div>
-              <!-- Address -->
-              <div class="mt-4 form-outline">
-                <input type="text" id="address" name="address" class="form-control" value="<?=((isset($_GET['edit']))?$address:'');?>">
-                <label for="address" class="form-label">Address</label>
-              </div>
-              <!-- Mobile -->
-              <div class="mt-4 form-outline">
-                <input type="text" id="mobile" name="mobile" class="form-control" value="<?=((isset($_GET['edit']))?$mobile:'');?>">
-                <label for="mobile" class="form-label">Mobile</label>
-              </div>
-              <!-- Email -->
-              <div class="mt-4 form-outline">
-                <input type="text" id="email" name="email" class="form-control" value="<?=((isset($_GET['edit']))?$email:'');?>">
-                <label for="email" class="form-label">Email ID</label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                Close
-              </button>
-              <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <script type="text/javascript">
+    $(document).ready(function(){  
+        function fetch_data()  
+        {  
+            $.ajax({  
+                url:"about_details/select.php",  
+                method:"POST",  
+                success:function(data){  
+            $('#live_data').html(data);  
+                }  
+            });  
+        }  
+        fetch_data();  
+        $(document).on('click', '#btn_add', function(){  
+            var name = $('#name').text();  
+            var feature_desc = $('#feature_desc').text();  
+            var about_desc = $('#about_desc').text();  
+            var salutation = $('#salutation').text();  
+            var address = $('#address').text();  
+            var mobile = $('#mobile').text();  
+            var email = $('#email').text();  
+            if(name == '')  
+            {  
+                alert("Enter Name");  
+                return false;  
+            }  
+            if(feature_desc == '')  
+            {  
+                alert("Enter Feature Text");  
+                return false;  
+            } 
+            if(about_desc == '')  
+            {  
+                alert("Enter Description");  
+                return false;  
+            } 
+            if(salutation == '')  
+            {  
+                alert("Enter a salutation");  
+                return false;  
+            } 
+            if(address == '')  
+            {  
+                alert("Enter Address");  
+                return false;  
+            } 
+            if(mobile == '')  
+            {  
+                alert("Enter Mobile");  
+                return false;  
+            }
+            if(email == '')  
+            {  
+                alert("Enter Email");  
+                return false;  
+            }  
+            $.ajax({  
+                url:"about_details/insert.php",  
+                method:"POST",  
+                data:{name:name, feature_desc:feature_desc, about_desc:about_desc, salutation: salutation, address: address, mobile:mobile, email: email},  
+                dataType:"text",  
+                success:function(data)  
+                {  
+                    alert(data);  
+                    fetch_data();  
+                }  
+            })  
+        });  
+        
+      function edit_data(id, text, column_name)  
+        {  
+            $.ajax({  
+                url:"about_details/edit.php",  
+                method:"POST",  
+                data:{id:id,text:text,column_name:column_name},  
+                dataType:"text",  
+                success:function(data){  
+                    //alert(data);
+                    $('#result').html("<div class='alert alert-success'>"+data+"</div>");
+                    setTimeout(location.reload.bind(location), 500);
+                }  
+            });  
+        }  
+        $(document).on('blur', '.name', function(){  
+            var id = $(this).data("id1");  
+            var name = $(this).text();  
+            edit_data(id, name, "name");  
+        });  
+        $(document).on('blur', '.feature_desc', function(){  
+            var id = $(this).data("id2");  
+            var feature_desc = $(this).text();  
+            edit_data(id,feature_desc, "feature_desc");  
+        }); 
+        $(document).on('blur', '.about_desc', function(){  
+            var id = $(this).data("id3");  
+            var about_desc = $(this).text();  
+            edit_data(id,about_desc, "about_desc");  
+        }); 
+        $(document).on('blur', '.salutation', function(){  
+            var id = $(this).data("id4");  
+            var salutation = $(this).text();  
+            edit_data(id,salutation, "salutation");  
+        }); 
+        $(document).on('blur', '.address', function(){  
+            var id = $(this).data("id5");  
+            var address = $(this).text();  
+            edit_data(id,address, "address");  
+        }); 
+        $(document).on('blur', '.mobile', function(){  
+            var id = $(this).data("id6");  
+            var mobile = $(this).text();  
+            edit_data(id,mobile, "mobile");  
+        });
+        $(document).on('blur', '.email', function(){  
+            var id = $(this).data("id7");  
+            var email = $(this).text();  
+            edit_data(id,email, "email");  
+        });  
+    }); 
+  </script>
 
 <?php include ('includes/footer.php');?>

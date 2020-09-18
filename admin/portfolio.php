@@ -73,7 +73,7 @@
 ?>
 
   <div class="container pt-3">
-    <h4 class="text-center">List of Portfolio</h4>
+    <h3 class="text-center">List of Portfolio</h3>
   </div>
 	<div class="container-fluid" style="margin: 2em 0;">
     <button type="button" class="btn btn-primary btn-floating" title="<?=((isset($_GET['edit']))?'Edit Portfolio':'Add New Portfolio');?>" data-toggle="modal" data-target="#exampleModal">
@@ -144,7 +144,7 @@
                 <label for="category" class="form-label">Portfolio Category</label>
               </div>
               <!-- Portfolio Image -->
-              <div class="form-file mt-4">
+              <div class="form-file my-4">
                 <input type="file" class="form-file-input" name="image" id="image" />
                 <label class="form-file-label" for="image">
                   <span class="form-file-text">Choose file...</span>

@@ -5,8 +5,21 @@
   }
 ?>
 <?php
+  include('../includes/init.php');
   $path=$_SERVER['PHP_SELF'];
   $page=basename($path); 
+
+  $sql = "SELECT * FROM about";
+  $result = $db->query($sql);
+  while($row = mysqli_fetch_assoc($result)){
+    $name = $row['name'];
+    $short_desc = $row['feature_desc'];
+    $salutation = $row['salutation'];
+    $description = $row['about_desc'];
+    $address = $row['address'];
+    $mobile = $row['mobile'];
+    $email = $row['email'];
+  } 
 ?>
 <html lang="en">
   <head>
@@ -14,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Experienced Web Developer with a demonstrated history of working in the higher education industry. Skilled in Web framework such as Django, and PHP, WordPress, Java, HTML, CSS, Javascript, Bootstrap, Responsive Web Design, and Leadership.">
-    <title>Sumeet Sharma - Software Engineer | UI/Frontend Developer | Web Developer</title>
+    <title><?=$name;?> - Software Engineer | UI/Frontend Developer | Web Developer</title>
     <link rel="canonical" href="https://itsumeet.com/">
     <!-- Site Icon -->
     <link rel="icon" href="../img/favicon.png" type="image/x-icon">
@@ -68,9 +81,9 @@
       <!-- Sidebar -->
       <div class="sidebar pt-3 shadow-5">
         <div class="list-group list-group-flush">
-          <a href="portfolio.php" class="list-group-item list-group-item-action ripple <?php if($page == 'portfolio.php'){ echo 'active'; }?>">Portfolio</a>
-          <a href="projects.php" class="list-group-item list-group-item-action ripple <?php if($page == 'projects.php'){ echo 'active'; }?>">Projects</a>
-          <a href="contact.php" class="list-group-item list-group-item-action ripple <?php if($page == 'contact.php'){ echo 'active'; }?>">Contact</a>
+          <a href="portfolio.php" class="list-group-item list-group-item-action ripple <?php if($page == 'portfolio.php'){ echo 'active'; }?>"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Portfolio</a>
+          <a href="projects.php" class="list-group-item list-group-item-action ripple <?php if($page == 'projects.php'){ echo 'active'; }?>"><i class="fas fa-building"></i>&nbsp;&nbsp;Projects</a>
+          <a href="contact.php" class="list-group-item list-group-item-action ripple <?php if($page == 'contact.php'){ echo 'active'; }?>"><i class="fas fa-envelope"></i>&nbsp;&nbsp;Contact</a>
         </div>
       </div>
       <!-- Sidebar -->
@@ -79,15 +92,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" style="box-shadow:none">
         <div class="container-fluid">
           <!-- Navbar brand -->
-          <a class="navbar-brand" target="_blank" href="https://mdbootstrap.com/docs/standard/">
-            <img
-              src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
-              height="16"
-              alt=""
-              loading="lazy"
-              style="margin-top: -3px;"
-            />
-          </a>
+          <a class="navbar-brand" href="../index.php"><?=$name;?></a>
           <button
             class="navbar-toggler"
             type="button"

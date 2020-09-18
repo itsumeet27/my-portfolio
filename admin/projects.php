@@ -59,7 +59,7 @@
 ?> 
 
   <div class="container pt-3">
-    <h4 class="text-center">List of Projects</h4>
+    <h3 class="text-center">List of Projects</h3>
   </div>
   <div class="container-fluid" style="margin: 2em 0;">
     <button type="button" class="btn btn-primary btn-floating" title="<?=((isset($_GET['edit']))?'Edit Project':'Add New Project');?>" data-toggle="modal" data-target="#exampleModal">
@@ -140,7 +140,7 @@
                 <label for="status" class="form-label">Status</label>
               </div>
               <!-- Description -->
-              <div class="form-outline mt-4">
+              <div class="form-outline my-4">
                 <textarea id="description" name="description" class="form-control" value="<?=((isset($_GET['edit']))?$description:'');?>"></textarea>
                 <label for="description" class="form-label">Description</label>
               </div>
