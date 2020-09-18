@@ -1,11 +1,26 @@
 <!DOCTYPE html>
+<?php
+  include('includes/init.php');
+
+  $sql = "SELECT * FROM about";
+  $result = $db->query($sql);
+  while($row = mysqli_fetch_assoc($result)){
+    $name = $row['name'];
+    $short_desc = $row['feature_desc'];
+    $salutation = $row['salutation'];
+    $description = $row['about_desc'];
+    $address = $row['address'];
+    $mobile = $row['mobile'];
+    $email = $row['email'];
+  }
+?>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Experienced Web Developer with a demonstrated history of working in the higher education industry. Skilled in Web framework such as Django, and PHP, WordPress, Java, HTML, CSS, Javascript, Bootstrap, Responsive Web Design, and Leadership.">
-    <title>Sumeet Sharma - Software Engineer | UI/Frontend Developer | Web Developer</title>
+    <title><?=$name;?> - <?=$short_desc;?></title>
     <link rel="canonical" href="https://itsumeet.com/">
     <!-- Site Icon -->
     <link rel="icon" href="img/favicon.png" type="image/x-icon">
@@ -27,7 +42,7 @@
       <!-- Container wrapper -->
       <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="./">Sumeet Sharma</a>    
+        <a class="navbar-brand" href="./"><?=$name;?></a>    
         <!-- Toggle button -->
         <button
           class="navbar-toggler"
@@ -47,9 +62,6 @@
           <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" href="./">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about.php">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./resume.php">Resume</a>

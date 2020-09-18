@@ -27,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Experienced Web Developer with a demonstrated history of working in the higher education industry. Skilled in Web framework such as Django, and PHP, WordPress, Java, HTML, CSS, Javascript, Bootstrap, Responsive Web Design, and Leadership.">
-    <title><?=$name;?> - Software Engineer | UI/Frontend Developer | Web Developer</title>
+    <title><?=$name;?> - <?=$short_desc;?></title>
     <link rel="canonical" href="https://itsumeet.com/">
     <!-- Site Icon -->
     <link rel="icon" href="../img/favicon.png" type="image/x-icon">
@@ -92,7 +92,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" style="box-shadow:none">
         <div class="container-fluid">
           <!-- Navbar brand -->
-          <a class="navbar-brand" href="../index.php"><?=$name;?></a>
+          <a class="navbar-brand" href="../index.php" target="_blank"><?=$name;?></a>
           <button
             class="navbar-toggler"
             type="button"

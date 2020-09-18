@@ -22,12 +22,8 @@
        $output .= '  
             <tr>  
                  <td style="font-size:13px;text-align:justify" class="name" data-id1="'.$row["id"].'" contenteditable>'.$row['name'].'</td>  
-                 <td style="font-size:13px;text-align:justify" class="feature_desc" data-id2="'.$row["id"].'" contenteditable>';?><?php if(strlen($row['feature_desc'])>50){
-                    $row['feature_desc']=substr($row['feature_desc'],0,50).'. . . <a class="font-weight-bold" style="cursor:pointer" href="" title="'.$row['feature_desc'].'">Read more</a>'; 
-                  }$output .= $row['feature_desc'].'</td>  
-                 <td style="font-size:13px;text-align:justify" class="about_desc" data-id3="'.$row["id"].'" contenteditable>';?><?php if(strlen($row['about_desc'])>50){
-                    $row['about_desc']=substr($row['about_desc'],0,50).'. . . <a class="font-weight-bold" style="cursor:pointer" href="" title="'.$row['about_desc'].'">Read more</a>'; 
-                  }$output .= $row['about_desc'].'</td>  
+                 <td style="font-size:13px;text-align:justify" class="feature_desc" data-id2="'.$row["id"].'" contenteditable>'.$row['feature_desc'].'</td>  
+                 <td style="font-size:13px;text-align:justify" class="about_desc" data-id3="'.$row["id"].'" contenteditable>'.$row['about_desc'].'</td>  
                  <td style="font-size:13px;text-align:justify" class="salutation" data-id4="'.$row["id"].'" contenteditable>'.$row["salutation"].'</td>  
                  <td style="font-size:13px;text-align:justify" class="address" data-id5="'.$row["id"].'" contenteditable>'.$row["address"].'</td>  
                  <td style="font-size:13px;text-align:justify" class="mobile" data-id6="'.$row["id"].'" contenteditable>'.$row["mobile"].'</td>  
