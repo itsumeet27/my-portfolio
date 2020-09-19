@@ -95,6 +95,7 @@
         <div class="list-group list-group-flush">
           <a href="portfolio.php" class="list-group-item list-group-item-action ripple <?php if($page == 'portfolio.php'){ echo 'active'; }?>"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Portfolio</a>
           <a href="projects.php" class="list-group-item list-group-item-action ripple <?php if($page == 'projects.php'){ echo 'active'; }?>"><i class="fas fa-building"></i>&nbsp;&nbsp;Projects</a>
+          <a href="education.php" class="list-group-item list-group-item-action ripple <?php if($page == 'education.php'){ echo 'active'; }?>"><i class="fas fa-university"></i>&nbsp;&nbsp;Education</a>
           <a href="contact.php" class="list-group-item list-group-item-action ripple <?php if($page == 'contact.php'){ echo 'active'; }?>"><i class="fas fa-envelope"></i>&nbsp;&nbsp;Contact</a>
         </div>
       </div>
