@@ -49,6 +49,7 @@
 
                         <!-- Submit button -->
                         <button type="submit" name="submit" class="btn btn-portfolio mb-4">Send &nbsp;<i class="fas fa-paper-plane"></i></button>
+                        <div class="status"></div>
                     </form>
                 </div>
                 <div class="contact-details col-md-6 px-4">
@@ -58,9 +59,6 @@
                     <p class="py-2"><i class="fas fa-envelope fa-2x"></i>&nbsp;&nbsp;&nbsp;<a href="mailto:<?=$email;?>"><?=$email;?></a></p>
                 </div>
             </div>
-            <div class="location px-2 mb-4">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1883.0897740917924!2d72.86277540807464!3d19.274556646743605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b05a0dd5123b%3A0xf9e5543510f58f4f!2sSector%209%2C%20Shanti%20Nagar%2C%20Mira%20Road%2C%20Mira%20Bhayandar%2C%20Maharashtra%20401107!5e0!3m2!1sen!2sin!4v1574403408310!5m2!1sen!2sin" height="300" frameborder="0" style="border:0;width: 100%" allowfullscreen=""></iframe>
-			</div>
         </div>
     </div>
     
@@ -105,8 +103,6 @@
             if($insert){
                 echo "<script>alert('Thank you for contacting!')</script>";
             }
-
-            var_dump($sql);
         }
     ?>
 <?php include('includes/footer.php'); ?>
