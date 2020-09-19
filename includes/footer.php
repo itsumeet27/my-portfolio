@@ -1,31 +1,69 @@
   </body>
   <!--Footer-->
   <footer class="page-footer text-center font-small animated fadeIn">
+    <?php
+      $sql = "SELECT * FROM about";
+      $result = $db->query($sql);
+      while($row = mysqli_fetch_assoc($result)){
+        $name = $row['name'];
+        $short_desc = $row['feature_desc'];
+        $salutation = $row['salutation'];
+        $description = $row['about_desc'];
+        $address = $row['address'];
+        $mobile = $row['mobile'];
+        $email = $row['email'];
+      }
 
+      $sql_social = "SELECT * FROM social";
+      $result_social = $db->query($sql_social);
+      while($social = mysqli_fetch_assoc($result_social)){
+        $facebook = $social['facebook'];
+        $instagram = $social['instagram'];
+        $linkedin = $social['linkedin'];
+        $twitter = $social['twitter'];
+        $pinterest = $social['pinterest'];
+        $github = $social['github'];
+        $behance = $social['behance'];
+      }
+    ?>
     <!-- Social icons -->
     <div class="pt-3 footer-social">
-      <a href="https://www.facebook.com/itsumeet" target="_blank">
-        <i class="fab fa-facebook-f mr-3" title="Facebook"></i>
+      <?php if($facebook != ''){ ?>
+      <a href="https://www.facebook.com/<?=$facebook;?>" target="_blank">
+        <i class="fab fa-facebook mr-3" style="font-size:18px"></i>
       </a>
-      <a href="https://linkedin.com/in/itsumeet" target="_blank">
-        <i class="fab fa-linkedin mr-3" title="Linkedin"></i>
+      <?php }if($linkedin != ''){ ?>
+      <a href="https://linkedin.com/in/<?=$linkedin;?>" target="_blank">
+        <i class="fab fa-linkedin mr-3" style="font-size:18px"></i>
       </a>
-      <a href="https://twitter.com/itsumeet27" target="_blank">
-        <i class="fab fa-twitter mr-3" title="Twitter"></i>
+      <?php }if($twitter != ''){ ?>
+      <a href="https://twitter.com/<?=$twitter;?>" target="_blank">
+        <i class="fab fa-twitter mr-3" style="font-size:18px"></i>
       </a>
-      <a href="https://instagram.com/itsumeet27" target="_blank">
-        <i class="fab fa-instagram mr-3" title="Instagram"></i>
+      <?php }if($instagram != ''){ ?>
+      <a href="https://instagram.com/<?=$instagram;?>" target="_blank">
+        <i class="fab fa-instagram mr-3" style="font-size:18px"></i>
       </a>
-      <a href="https://github.com/itsumeet27" target="_blank">
-        <i class="fab fa-github mr-3" title="GitHub"></i>
+      <?php }if($github != ''){ ?>
+      <a href="https://github.com/<?=$github;?>" target="_blank">
+        <i class="fab fa-github mr-3" style="font-size:18px"></i>
       </a>
+      <?php }if($pinterest != ''){ ?>
+      <a href="https://in.pinterest.com/<?=$pinterest;?>" target="_blank">
+        <i class="fab fa-pinterest mr-3" style="font-size:18px"></i>
+      </a>
+      <?php }if($behance != ''){ ?>
+      <a href="https://behance.net/<?=$behance;?>" target="_blank">
+        <i class="fab fa-behance mr-3" style="font-size:18px"></i>
+      </a>
+      <?php }?>
     </div>
     <!-- Social icons -->
 
     <!--Copyright-->
     <div class="footer-copyright pt-3 pb-2">
       © 2020 Copyright:
-      <a href="" target="_blank"> Sumeet Sharma </a>
+      <a href="./" target="_blank"> <?=$name;?> </a>
     </div>
     <!--/.Copyright-->
   </footer>
