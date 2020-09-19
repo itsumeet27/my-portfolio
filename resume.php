@@ -24,7 +24,7 @@
                         <p class=""><?=$educate['short_description'];?></p>
                         <p><?=nl2br($educate['long_description']);?></p>
                     </div>
-                    <?php } } ?>
+                    <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No data to display</p>"; } ?>
                 </div>
 
                 <!-- Work Experience -->
@@ -42,7 +42,7 @@
                         <p class=""><i><?=$work['company_name'];?></i></p>
                         <p class=""><?=nl2br($work['long_description']);?></p>
                     </div>
-                    <?php } } ?>
+                    <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No data to display</p>"; } ?>
                 </div>
             </div>
         </div>
