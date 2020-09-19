@@ -43,7 +43,7 @@
           <td id="address" contenteditable style="font-size:13px"></td>  
           <td id="mobile" contenteditable style="font-size:13px"></td>  
           <td id="email" contenteditable style="font-size:13px"></td>
-					<td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success btn-floating">+</button></td>  
+					<td><button type="button" name="btn_add_profile" id="btn_add_profile" class="btn btn-xs btn-success btn-floating">+</button></td>  
 			   </tr>';  
  }  
  $output .= '</table>  
