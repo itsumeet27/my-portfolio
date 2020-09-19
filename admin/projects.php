@@ -44,6 +44,7 @@
       }
       if($db->query($insertSql)){
         echo "<script>alert('Data Saved Successfully')</script>";
+        echo "<script>window.location('projects.php','_self')</script>";
       }
     }
   }

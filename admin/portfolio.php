@@ -68,6 +68,7 @@
     $run_del = $db->query($del);
     if($run_del){
       echo "<script>alert('Data Deleted Successfully')</script>";
+      echo "<script>window.location('portfolio.php','_self')</script>";
     }
   }
 ?>

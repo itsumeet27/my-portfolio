@@ -248,6 +248,9 @@ label {
   text-decoration: none;
   transition-duration: 0.3s; }
 
+.progress {
+  background-color: #cbcbcb !important; }
+
 .progress-bar {
   background-color: var(--p-color) !important;
   color: var(--bg); }
