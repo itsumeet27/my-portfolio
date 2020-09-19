@@ -11,75 +11,38 @@
                 <!-- Education -->
                 <div class="education col-md-6">
                     <h4 class="pb-3"><i class="fas fa-university"></i> &nbsp;Education</h4>
-                    <div class="bachelors left-pane pb-0">
-                        <h5 class="">Bachelors of Engineering (B.E) in Information Technology</h5>
-                        <p class="">2014-2018</p>
-                        <p class=""><i>St. Francis Institute of Technology, University of Mumbai</i></p>
-                        <p class="">
-                            Completed a 4-year degree course of Bachelors of Engineering in Information Technology acquiring various major/minor skills and technologies during this Academic Period.
-                        </p>
-                        <ul>
-                            <li>Completed the B.E Project on <b>Predictive Marketing Campaign for Banking System</b></li>
-                            <li>Paper publication in <b>IJGTI Journal</b> on <b>Predictive Marketing Campaign for Banking System</b></li>
-                            <li>Participated in Poster Presentation Competition on <b>Web Application for ITSA</b> held by <b>Universal College of Engineering, Vasai (W)</b></li>
-                            <li>Participated in Paper Presentation on <b>5G Wireless Technology</b> held in <b>D.J. Sanghvi College, Andheri, Mumbai</b></li>
-                            <li>Volunteer and Website Developer of <b>National Service Scheme (NSS SFIT)</b> Department for 2 years (2015-2017)</li>
-                        </ul>
+                    <?php
+                        $education = "SELECT * FROM education ORDER BY id ASC";
+                        $result_education = $db->query($education);
+                        if(mysqli_num_rows($result_education) > 0){
+                            while($educate = mysqli_fetch_assoc($result_education)){
+                    ?>
+                    <div class="left-pane pb-0">
+                        <h5 class=""><?=$educate['degree_name'];?>&nbsp;&nbsp;(<?=$educate['result'];?>)</h5>
+                        <p class=""><?=$educate['year_of_education'];?></p>
+                        <p class=""><i><?=$educate['college_name'];?>, <?=$educate['board_university'];?></i></p>
+                        <p class=""><?=$educate['short_description'];?></p>
+                        <p><?=nl2br($educate['long_description']);?></p>
                     </div>
-                    <div class="hsc left-pane pb-0">
-                        <h5 class="">Higher Secondary Certificate (HSC)</h5>
-                        <p class="">2012-2014</p>
-                        <p class=""><i>Thakur College of Science and Commerce, Maharashtra Board</i></p>
-                        <p class="">
-                            Completed the 10+2 education with subject combination of Biology and Information Technology (BIO/IT).
-                        </p>
-                    </div>
-                    <div class="hsc left-pane pb-0">
-                        <h5 class="">Secondary School Certificate (HSC)</h5>
-                        <p class="">2011-2012</p>
-                        <p class=""><i>Cosmopolitan High School, Maharashtra Board</i></p>
-                        <p class="">
-                            Completed basic education by passing the SSC Exam conducted by Maharashtra Board.
-                        </p>
-                    </div>
+                    <?php } } ?>
                 </div>
 
                 <!-- Work Experience -->
                 <div class="experience col-md-6">
                     <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Work Experience</h4>
-                    <div class="lti left-pane pb-0">
-                        <h5 class="">Software Engineering</h5>
-                        <p class="">December 2018-Present</p>
-                        <p class=""><i>Larsen & Toubro Infotech</i></p>
-                        <ul>
-                            <li>Developing a web application for an internal platform including multiple functionalities and various tools using technologies such as HTML5, CSS3, Javascript, Bootstrap, PHP and MySQL</li>
-                            <li>Developing a solution for client to raise incident on the purchases made in the web application using Oracle VBCS (Visual Builder Cloud Service)</li>
-                            <li>Creating services and business objects and mapping variables for assigning fetching data using action chains and events</li>
-                            <li>Practice on SOA (Service Oriented Architecture) and OSB (Oracle Service Bus) for developing services</li>
-                            <li>APWF Support for providing support on a project based on I/PM (Imaging and Process Management) Technology for incidents occurring due to faults in email processed by the server</li>
-                        </ul>
+                    <?php
+                        $experience = "SELECT * FROM experience ORDER BY id ASC";
+                        $result_experience = $db->query($experience);
+                        if(mysqli_num_rows($result_experience) > 0){
+                            while($work = mysqli_fetch_assoc($result_experience)){
+                    ?>
+                    <div class="left-pane pb-0">
+                        <h5 class=""><?=$work['designation'];?></h5>
+                        <p class=""><?=$work['year_of_work'];?></p>
+                        <p class=""><i><?=$work['company_name'];?></i></p>
+                        <p class=""><?=nl2br($work['long_description']);?></p>
                     </div>
-                    <div class="luka-enterprises left-pane pb-0">
-                        <h5 class="">Web Developer</h5>
-                        <p class="">August 2018-December 2018</p>
-                        <p class="">Intern at <i>Luka Enterprises</i></p>
-                        <ul>
-                            <li>Managing a website and working on the features</li>
-                            <li>Developing an E-Commerce website</li>
-                            <li>Adding features and functionalities to the website</li>
-                            <li>Working on the SEO of the website</li>
-                        </ul>
-                    </div>
-                    <div class="iide left-pane pb-0">
-                        <h5 class="">Web Developer</h5>
-                        <p class="">April 2017-August 2017</p>
-                        <p class="">Intern at <i>Indian Institute of Digital Education (IIDE)</i></p>
-                        <ul>
-                            <li>Managed and Developed website on WordPress</li>
-                            <li>Have hands on experience on DIVI theme and builder</li>
-                            <li>Learned how to maintain SEO on the WordPress website using a plugin called as Yoast SEO</li>
-                        </ul>
-                    </div>
+                    <?php } } ?>
                 </div>
             </div>
         </div>

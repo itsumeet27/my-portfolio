@@ -46,7 +46,7 @@
 
   if(isset($_GET['delete'])){
     $del_id = $_GET['delete'];
-    $del = "DELETE FROM portfolio WHERE id = '$del_id'";
+    $del = "DELETE FROM education WHERE id = '$del_id'";
     $run_del = $db->query($del);
     if($run_del){
       echo "<script>alert('Data Deleted Successfully')</script>";
@@ -67,13 +67,13 @@
         <thead class="elegant-color white-text">
           <th></th>
           <th></th>
-          <th style="font-size:13px">Degree Name</th>
-          <th style="font-size:13px">College Name</th>
-          <th style="font-size:13px">Short Description</th>
-          <th style="font-size:13px">Long Description</th>
-          <th style="font-size:13px">Board/University</th>
-          <th style="font-size:13px">Result</th>
-          <th style="font-size:13px">Year of Education</th>
+          <th style="font-size:13px" width="250">Degree Name</th>
+          <th style="font-size:13px" width="250">College Name</th>
+          <th style="font-size:13px" width="250">Short Description</th>
+          <th style="font-size:13px" width="250">Long Description</th>
+          <th style="font-size:13px" width="250">Board/University</th>
+          <th style="font-size:13px" width="250">Result</th>
+          <th style="font-size:13px" width="250">Year of Education</th>
         </thead>
         <tbody>
           <?php
