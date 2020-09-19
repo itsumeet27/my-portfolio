@@ -1,12 +1,9 @@
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+  box-sizing: border-box;
+  scroll-behavior: smooth; }
 
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 html {
   --bg: #fcfcfc;
@@ -18,9 +15,7 @@ html {
   --color-text: #444;
   --title-heading: #444;
   --hr-color: #555;
-  --box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 20%)
-  ;
-}
+  --box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 20%) ; }
 
 html[data-theme='dark'] {
   --bg: #333;
@@ -32,48 +27,37 @@ html[data-theme='dark'] {
   --color-text: #f9f9f9;
   --title-heading: #fff;
   --hr-color: #f2f2f2;
-  --box-shadow: 1px 1px 5px 1px rgb(255 255 255 / 20%)
-  ;
-}
+  --box-shadow: 1px 1px 5px 1px rgb(255 255 255 / 20%) ; }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
-}
+  width: 10px; }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--bg-panel);
-}
+  background: var(--bg-panel); }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--page-heading);
-}
+  background: var(--page-heading); }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--title-heading);
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-}
+  transition-duration: 0.3s; }
 
 html.transition,
 html.transition *,
 html.transition *:before,
 html.transition *:after {
-  -webkit-transition: all 750ms !important;
   transition: all 750ms !important;
-  -webkit-transition-delay: 0 !important;
-          transition-delay: 0 !important;
-}
+  transition-delay: 0 !important; }
 
 html,
 body,
 .view {
   height: 100%;
-  margin: 0;
-}
+  margin: 0; }
 
 html,
 body,
@@ -83,86 +67,69 @@ header,
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: Roboto;
-}
+  font-family: Roboto; }
 
 body {
-  background-color: var(--bg);
-}
+  background-color: var(--bg); }
 
 .form-check-input[type=checkbox]:checked {
-  background-color: rgba(0, 0, 0, 0.38);
-}
+  background-color: rgba(0, 0, 0, 0.38); }
 
 .form-check-input[type=checkbox]:checked:focus {
-  background-color: rgba(0, 0, 0, 0.38);
-}
+  background-color: rgba(0, 0, 0, 0.38); }
 
 .form-check-input[type=checkbox]:checked:focus {
-  background-color: rgba(0, 0, 0, 0.38);
-}
+  background-color: rgba(0, 0, 0, 0.38); }
 
 .form-switch .form-check-input:checked[type=checkbox]:after {
-  background-color: var(--title-heading);
-}
+  background-color: var(--title-heading); }
 
 .navbar, .page-footer {
   -webkit-box-shadow: none;
   box-shadow: none;
-  background-color: var(--bg-panel) !important;
-}
+  background-color: var(--bg-panel) !important; }
 
 .navbar a, footer a, .footer-copyright {
-  color: var(--color-text) !important;
-}
+  color: var(--color-text) !important; }
 
 i {
-  color: var(--color-text) !important;
-}
+  color: var(--color-text) !important; }
 
 .navbar a i {
-  color: var(--color-text) !important;
-}
+  color: var(--color-text) !important; }
 
 .banner {
   width: 100%;
   padding: 2em 0;
-  margin: 0;
-}
+  margin: 0; }
 
 .details {
   z-index: 1000;
   padding: 5em 3em;
-  background-color: var(--bg);
-}
+  background-color: var(--bg); }
 
 .details h6 {
   font-family: 'Poppins', sans-serif;
   color: var(--sub-headings);
   font-weight: 500;
-  padding-left: 5px;
-}
+  padding-left: 5px; }
 
 .details h1 {
   font-size: 48px;
   font-family: Righteous;
-  color: var(--title-heading);
-}
+  color: var(--title-heading); }
 
 .image {
   width: 100%;
   z-index: 1000;
   text-align: center;
-  padding: 3em 0;
-}
+  padding: 3em 0; }
 
 .image img {
   width: 360px;
   padding: 1.5em;
   background-color: var(--frame-padding);
-  -webkit-box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.5);
-          box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.5);
-}
+  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.5); }
 
 hr.title {
   width: 150px;
@@ -170,68 +137,55 @@ hr.title {
   background-color: var(--hr-color);
   text-align: justify;
   margin-left: 5px;
-  border-radius: 10px 10px;
-}
+  border-radius: 10px 10px; }
 
 .details p {
   line-height: 1.5em;
   padding-left: 5px;
-  color: var(--p-color);
-}
+  color: var(--p-color); }
 
 .social-icons {
   margin-left: 3px;
-  margin-top: 2em;
-}
+  margin-top: 2em; }
 
 .social-icons i, .technologies i {
   color: #363636;
   font-size: 24px;
-  padding: 0px 0.2em;
-}
+  padding: 0px 0.2em; }
 
 .social-icons i:hover, .technologies i:hover {
-  color: #000;
-}
+  color: #000; }
 
 .footer-social {
   color: #fff;
-  font-size: 16px;
-}
+  font-size: 16px; }
 
 .btn-contact {
   background: var(--bg-panel);
   color: var(--color-text);
   margin-top: 2em;
   border-radius: 0;
-  border: 1.5px solid var(--color-text);
-}
+  border: 1.5px solid var(--color-text); }
 
 .btn-contact:hover {
   background: var(--color-text);
   color: var(--bg-panel);
-  -webkit-transition-duration: 0.4s;
-          transition-duration: 0.4s;
-}
+  transition-duration: 0.4s; }
 
 .btn-portfolio {
   background: var(--color-text);
   color: var(--bg-panel);
   border-radius: 0;
   border: 1.5px solid var(--color-text);
-  margin-top: 2em;
-}
+  margin-top: 2em; }
 
 .btn-portfolio:hover {
   background: var(--bg-panel);
   color: var(--color-text);
-  -webkit-transition-duration: 0.4s;
-          transition-duration: 0.4s;
-}
+  transition-duration: 0.4s; }
 
 .page-title h1, .page-title h3 {
-  color: var(--page-heading);
-}
+  color: var(--page-heading); }
 
 .page-title h1 hr, .page-title h3 hr {
   width: 60px;
@@ -239,44 +193,36 @@ hr.title {
   border-radius: 25px;
   color: var(--hr-color);
   border-color: var(--hr-color);
-  background-color: var(--hr-color);
-}
+  background-color: var(--hr-color); }
 
 .page-title h3 hr {
-  width: 100%;
-}
+  width: 100%; }
 
 .about p {
   text-align: justify;
   font-size: 17px;
-  color: var(--p-color);
-}
+  color: var(--p-color); }
 
 label {
   color: var(--p-color);
-  font-weight: 500;
-}
+  font-weight: 500; }
 
 .technologies p {
   font-size: 17px;
   color: var(--p-color);
-  font-weight: 400;
-}
+  font-weight: 400; }
 
 .education h4, .experience h4 {
-  color: var(--p-color);
-}
+  color: var(--p-color); }
 
 .education h5, .experience h5, .left-pane h5 {
-  color: var(--page-heading);
-}
+  color: var(--page-heading); }
 
 .left-pane {
   padding: 0 0 20px 20px;
   margin-top: -2px;
   border-left: 2px solid var(--p-color);
-  position: relative;
-}
+  position: relative; }
 
 .left-pane::before {
   content: "";
@@ -287,86 +233,66 @@ label {
   left: -9px;
   top: 0;
   background: var(--bg);
-  border: 2px solid var(--p-color);
-}
+  border: 2px solid var(--p-color); }
 
 .left-pane p, .left-pane ul li {
   color: var(--p-color);
-  text-align: justify;
-}
+  text-align: justify; }
 
 .left-pane p a {
   color: var(--p-color) !important;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .left-pane p a:hover {
   color: var(--p-color) !important;
   text-decoration: none;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-}
+  transition-duration: 0.3s; }
 
 .progress-bar {
   background-color: var(--p-color) !important;
-  color: var(--bg);
-}
+  color: var(--bg); }
 
 .portfolio-data .card {
-  background-color: var(--page-heading);
-}
+  background-color: var(--page-heading); }
 
 .portfolio-data .card h4, .portfolio-data .card p {
-  color: var(--bg);
-}
+  color: var(--bg); }
 
 .portfolio-data .card .btn-contact i {
-  color: var(--p-color) !important;
-}
+  color: var(--p-color) !important; }
 
 .portfolio-data .card .btn-contact {
   background: var(--bg);
-  color: var(--p-color);
-}
+  color: var(--p-color); }
 
 .contact-form h4, .contact-details h4 {
-  color: var(--p-color);
-}
+  color: var(--p-color); }
 
 .contact-details p {
   font-size: 17px;
-  color: var(--p-color) !important;
-}
+  color: var(--p-color) !important; }
 
 .contact-details p a {
   color: var(--p-color) !important;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .contact-details p a:hover {
   color: var(--p-color) !important;
   text-decoration: none;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-}
+  transition-duration: 0.3s; }
 
 input[type='text'], input[type='email'], textarea {
-  color: var(--p-color) !important;
-}
+  color: var(--p-color) !important; }
 
 #contact-form label {
-  color: var(--p-color) !important;
-}
+  color: var(--p-color) !important; }
 
 #contact-form .btn-portfolio i {
-  color: var(--bg-panel) !important;
-}
+  color: var(--bg-panel) !important; }
 
 #contact-form .btn-portfolio:hover i {
   color: var(--p-color) !important;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-}
+  transition-duration: 0.3s; }
 
 /* Responsive Media Queries */
 @media (max-width: 740px) {
@@ -374,70 +300,47 @@ input[type='text'], input[type='email'], textarea {
   body,
   header,
   .view {
-    height: 1000px;
-  }
-}
-
+    height: 1000px; } }
 @media (min-width: 800px) and (max-width: 850px) {
   html,
   body,
   header,
   .view {
-    height: 650px;
-  }
-}
-
+    height: 650px; } }
 @media (min-width: 800px) and (max-width: 850px) {
   .navbar:not(.top-nav-collapse) {
-    background: #1C2331 !important;
-  }
-}
-
+    background: #1C2331 !important; } }
 @media (max-width: 740px) {
   .full-page-intro {
-    height: 1000px;
-  }
-}
-
+    height: 1000px; } }
 /* Half Page Carousel itself*/
 .carousel {
-  height: 50%;
-}
+  height: 50%; }
 
 .carousel .carousel-inner {
-  height: 100%;
-}
+  height: 100%; }
 
 .carousel .carousel-inner .carousel-item,
 .carousel .carousel-inner .active {
-  height: 100%;
-}
+  height: 100%; }
 
 /* Adjustment for mobile devices*/
 @media (max-width: 776px) {
   .carousel {
-    height: 100%;
-  }
-}
-
+    height: 100%; } }
 /* Navbar animation */
 .navbar {
-  background-color: rgba(0, 0, 0, 0.3);
-}
+  background-color: rgba(0, 0, 0, 0.3); }
 
 .top-nav-collapse {
-  background-color: #1C2331;
-}
+  background-color: #1C2331; }
 
 /* Adding color to the Navbar on mobile */
 @media only screen and (max-width: 768px) {
   .navbar {
-    background-color: #1C2331;
-  }
-}
-
+    background-color: #1C2331; } }
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
-  background-color: #1C2331;
-}
+  background-color: #1C2331; }
+
 /*# sourceMappingURL=style.css.map */
