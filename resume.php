@@ -25,7 +25,7 @@
                             <p class=""><?=$educate['short_description'];?></p>
                             <p><?=nl2br($educate['long_description']);?></p>
                         </div>
-                        <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No data to display</p>"; } ?>
+                        <?php } } else { echo "<div class='alert alert-danger'>No data to display</div>"; } ?>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
                             <p class=""><i><?=$work['company_name'];?></i></p>
                             <p class=""><?=nl2br($work['long_description']);?></p>
                         </div>
-                        <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No data to display</p>"; } ?>
+                        <?php } } else { echo "<div class='alert alert-danger'>No data to display</div>"; } ?>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                                 <div class="progress-bar" role="progressbar" style="width: <?=$skill['percentage'];?>%;" aria-valuenow="<?=$skill['percentage'];?>" aria-valuemin="0" aria-valuemax="100"><?=$skill['percentage'];?>%</div>
                             </div>
                         </div>
-                        <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No skills added yet to display</p>"; } ?>
+                        <?php } } else { echo "<div class='alert alert-danger'>No skills added yet to display</div>"; } ?>
                     </div>
                 </div>
 
@@ -91,7 +91,7 @@
                             <p><label>Issued by:&nbsp;</label><span><i><?=$certificate['issued_by'];?></i></span></p>
                             <p><label>Date:&nbsp;</label><span><?=$certificate['issued_date'];?></span></p>
                         </div>
-                        <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No certifications added yet to display</p>"; } ?>
+                        <?php } } else { echo "<div class='alert alert-danger'>No certifications added yet to display</div>"; } ?>
                     </div>
                 </div>
             </div>            
@@ -120,7 +120,7 @@
                         <p><?=nl2br($row_projects['description']); ?></p>
                         <p><label>Technologies:&nbsp;</label><span><?=$row_projects['technologies']; ?></span></p>
                     </div>
-                    <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No data to display</p>"; } ?>
+                    <?php } } else { echo "<div class='alert alert-danger'>No data to display</div>"; } ?>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@
                         <p><label>Technologies:&nbsp;</label><span><?=$row_websites['technologies']; ?></span></p>
                         <p><label>URL:&nbsp;</label><span><a href="<?=$row_websites['url']; ?>"><?=$row_websites['url']; ?></a></span></p>
                     </div>
-                    <?php } } else { echo "<p class='lead font-weight-bold text-danger'>No data to display</p>"; } ?>
+                    <?php } } else { echo "<div class='alert alert-danger'>No data to display</div>"; } ?>
                 </div>
             </div>
         </div>

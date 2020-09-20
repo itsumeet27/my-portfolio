@@ -8,19 +8,19 @@
     $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):'');
     $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):'');
     $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):'');
+    $technologies = ((isset($_POST['technologies']) && $_POST['technologies'] != '')?sanitize($_POST['technologies']):'');
+
     $saved_image = '';
     if(isset($_GET['edit'])){
         $edit_id = (int)$_GET['edit'];
         $portfolioResult = $db->query("SELECT * FROM portfolio WHERE id = '$edit_id'");
         $portfolio = mysqli_fetch_assoc($portfolioResult);
 
-        $a = $portfolio['technologies'];
-        $technologies = explode(",",$a);
-
         $dbpath = $saved_image;
         $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):$portfolio['name']);
         $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):$portfolio['description']);
         $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):$portfolio['category']);
+        $technologies = ((isset($_POST['technologies']) && $_POST['technologies'] != '')?sanitize($_POST['technologies']):$portfolio['technologies']);
     }
 
     if($_POST){
@@ -40,24 +40,17 @@
           move_uploaded_file($imagefile, $imagedestination);
       }
 
-      if(isset($_GET['add'])){                    
-
-          $a = $_POST['technologies'];
-          $technologies = implode(',',$a);
-          
+      if(isset($_GET['add'])){          
           $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies) VALUES ('$name','$description','$category','$imagefilename','$technologies')";
       }
 
       if(isset($_GET['edit'])){
-
-          $b = $_POST['technologies'];
-          $technologies_u = implode(",",$b);
-
-          $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies_u' WHERE id = '$edit_id'";
+        $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies' WHERE id = '$edit_id'";
       }
 
       if($db->query($insertSql)){
           echo "<script>alert('Data Saved Successfully')</script>";
+          echo "<script>window.location('portfolio.php', '_self')</script>";
       }
     }
   }
@@ -153,96 +146,9 @@
                 </label>
               </div>
               <!-- Technologies -->
-              <label for="technologies mt-4">Technologies Used</label>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="html5" name="technologies[]" value="HTML5" 
-                    <?php if((isset($_GET['edit'])) && in_array("HTML5",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="html5">HTML5</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="css3" name="technologies[]" value="CSS3" 
-                    <?php if((isset($_GET['edit'])) && in_array("CSS3",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="css3">CSS3</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="javascript" name="technologies[]" value="JavaScript" 
-                    <?php if((isset($_GET['edit'])) && in_array("JavaScript",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="javascrip">JavaScript</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="jquery" name="technologies[]" value="jQuery" 
-                    <?php if((isset($_GET['edit'])) && in_array("jQuery",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="jquery">jQuery</label>
-              </div>                  
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="php" name="technologies[]" value="PHP" 
-                    <?php if((isset($_GET['edit'])) && in_array("PHP",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="php">PHP</label>
-              </div>                  
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="mysql" name="technologies[]" value="MySQL" 
-                    <?php if((isset($_GET['edit'])) && in_array("MySQL",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="mysql">MySQL</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="bootstrap" name="technologies[]" value="Bootstrap" 
-                    <?php if((isset($_GET['edit'])) && in_array("Bootstrap",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="bootstrap">Bootstrap</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="wordpress" name="technologies[]" value="WordPress" 
-                    <?php if((isset($_GET['edit'])) && in_array("WordPress",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="wordpress">WordPress</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="photoshop" name="technologies[]" value="Adobe Photoshop" 
-                    <?php if((isset($_GET['edit'])) && in_array("Adobe Photoshop",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="photoshop">Adobe Photoshop</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="adobexd" name="technologies[]" value="Adobe XD" 
-                    <?php if((isset($_GET['edit'])) && in_array("Adobe XD",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="adobexd">Adobe XD</label>
+              <div class="mt-4 form-outline">
+                <input type="text" id="technologies" name="technologies" class="form-control" value="<?=((isset($_GET['edit']))?$technologies:'');?>">
+                <label for="technologies" class="form-label">Technologies Used</label>
               </div>
             </div>
             <div class="modal-footer">

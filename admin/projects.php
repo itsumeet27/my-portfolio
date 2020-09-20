@@ -9,6 +9,7 @@
     $status = ((isset($_POST['status']) && $_POST['status'] != '')?sanitize($_POST['status']):'');
     $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):'');
     $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):'');
+    $technologies = ((isset($_POST['technologies']) && $_POST['technologies'] != '')?sanitize($_POST['technologies']):'');
     $url = ((isset($_POST['url']) && $_POST['url'] != '')?sanitize($_POST['url']):'');
 
     if(isset($_GET['edit'])){
@@ -16,31 +17,21 @@
       $projectResult = $db->query("SELECT * FROM projects WHERE id = '$edit_id'");
       $project = mysqli_fetch_assoc($projectResult);
 
-      $a = $project['technologies'];
-      $technologies = explode(",",$a);
-
       $name = ((isset($_POST['name']) && $_POST['name'] != '')?sanitize($_POST['name']):$project['name']);
       $associated_with = ((isset($_POST['associated_with']) && $_POST['associated_with'] != '')?sanitize($_POST['associated_with']):$project['associated_with']);
       $status = ((isset($_POST['status']) && $_POST['status'] != '')?sanitize($_POST['status']):$project['status']);
       $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):$project['description']);
       $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):$project['category']);
+      $technologies = ((isset($_POST['technologies']) && $_POST['technologies'] != '')?sanitize($_POST['technologies']):$project['technologies']);
       $url = ((isset($_POST['url']) && $_POST['url'] != '')?sanitize($_POST['url']):$project['url']);
     }
     if($_POST){
-      if(isset($_GET['add'])){                    
-
-        $a = $_POST['technologies'];
-        $technologies = implode(', ',$a);
-        
+      if(isset($_GET['add'])){ 
         $insertSql = "INSERT INTO projects (name,associated_with,status,description,technologies,category,url) VALUES ('$name','$associated_with','$status','$description','$technologies','$category','$url')";
       }
 
       if(isset($_GET['edit'])){
-
-        $b = $_POST['technologies'];
-        $technologies_u = implode(",",$b);
-
-        $insertSql = "UPDATE projects SET name = '$name', associated_with = '$associated_with', status = '$status', description = '$description', technologies = '$technologies_u', category = '$category', url = '$url' WHERE id = '$edit_id'";
+        $insertSql = "UPDATE projects SET name = '$name', associated_with = '$associated_with', status = '$status', description = '$description', technologies = '$technologies', category = '$category', url = '$url' WHERE id = '$edit_id'";
       }
       if($db->query($insertSql)){
         echo "<script>alert('Data Saved Successfully')</script>";
@@ -55,6 +46,7 @@
     $runDelete = $db->query($delete);
     if($runDelete){
       echo "<script>alert('Data Deleted Successfully')</script>"; 
+      echo "<script>window.location('projects.php','_self')</script>";
     }
   }
 ?> 
@@ -146,105 +138,9 @@
                 <label for="description" class="form-label">Description</label>
               </div>
               <!-- Technologies -->
-              <label for="technologies mt-4">Technologies Used</label>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="html5" name="technologies[]" value="HTML5" 
-                    <?php if((isset($_GET['edit'])) && in_array("HTML5",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="html5">HTML5</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="css3" name="technologies[]" value="CSS3" 
-                    <?php if((isset($_GET['edit'])) && in_array("CSS3",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="css3">CSS3</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="javascript" name="technologies[]" value="JavaScript" 
-                    <?php if((isset($_GET['edit'])) && in_array("JavaScript",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="javascrip">JavaScript</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="jquery" name="technologies[]" value="jQuery" 
-                    <?php if((isset($_GET['edit'])) && in_array("jQuery",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="jquery">jQuery</label>
-              </div>                  
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="php" name="technologies[]" value="PHP" 
-                    <?php if((isset($_GET['edit'])) && in_array("PHP",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="php">PHP</label>
-              </div>                  
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="mysql" name="technologies[]" value="MySQL" 
-                    <?php if((isset($_GET['edit'])) && in_array("MySQL",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="mysql">MySQL</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="bootstrap" name="technologies[]" value="Bootstrap" 
-                    <?php if((isset($_GET['edit'])) && in_array("Bootstrap",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="bootstrap">Bootstrap</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="wordpress" name="technologies[]" value="WordPress" 
-                    <?php if((isset($_GET['edit'])) && in_array("WordPress",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="wordpress">WordPress</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="photoshop" name="technologies[]" value="Adobe Photoshop" 
-                    <?php if((isset($_GET['edit'])) && in_array("Adobe Photoshop",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="photoshop">Adobe Photoshop</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="adobexd" name="technologies[]" value="Adobe XD" 
-                    <?php if((isset($_GET['edit'])) && in_array("Adobe XD",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="adobexd">Adobe XD</label>
-              </div>
-              <div class="form-check mt-1">
-                <input type="checkbox" class="form-check-input" id="others" name="technologies[]" value="Others" 
-                    <?php if((isset($_GET['edit'])) && in_array("Others",$technologies)){
-                            echo "checked";
-                        }
-                    ?>
-                >
-                <label class="form-check-label" for="others">Others</label>
+              <div class="mt-4 form-outline">
+                <input type="text" id="technologies" name="technologies" class="form-control" value="<?=((isset($_GET['edit']))?$technologies:'');?>">
+                <label for="technologies" class="form-label">Technologies Used</label>
               </div>
               <!-- Category -->
               <div class="form-outline mt-4">
