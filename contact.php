@@ -60,8 +60,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    
+    </div>    
 
     <!-- Contact form -->
     <script type="text/javascript">
