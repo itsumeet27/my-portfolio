@@ -29,7 +29,7 @@
                     </div>
                     <!-- Card -->
                 </div>
-                <?php endwhile; } ?>
+                <?php endwhile; } else { echo "<div class='alert alert-danger'>No data to display</div>"; } ?>
             </div>
         </div>
     </div>
