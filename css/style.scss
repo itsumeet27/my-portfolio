@@ -148,7 +148,8 @@ $font-family: Roboto;
   }
 
   .profile-image{
-    background-color: var(--p-color);
+    // background-color: var(--p-color);
+    background: linear-gradient(to left bottom, var(--bg) 50%, var(--p-color) 50%);
   }
 
   .image {

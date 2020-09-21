@@ -5,6 +5,7 @@
   $sql = "SELECT * FROM about";
   $result = $db->query($sql);
   while($row = mysqli_fetch_assoc($result)){
+    $id = $row['id'];
     $name = $row['name'];
     $short_desc = $row['feature_desc'];
     $salutation = $row['salutation'];
@@ -12,6 +13,7 @@
     $address = $row['address'];
     $mobile = $row['mobile'];
     $email = $row['email'];
+    $image = $row['image'];
   }
 
   $sql_social = "SELECT * FROM social";
@@ -50,9 +52,9 @@
     <style></style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light scrolling-navbar">
       <!-- Container wrapper -->
-      <div class="container-fluid">
+      <div class="container">
         <!-- Navbar brand -->
         <a class="navbar-brand" href="./"><?=$name;?></a>    
         <!-- Toggle button -->
@@ -86,9 +88,18 @@
             </li>
           </ul>
           <!-- Left links -->
-    
+          <!-- Contact Links -->
+          <ul class="navbar-nav d-flex flex-row mr-3 mt-0">
+            <li class="nav-item mr-2 mr-lg-0">              
+              <a class="nav-link" href="tel:<?=$mobile;?>" target="_blank"><i class="fas fa-mobile-alt mr-1" style="font-size:18px"></i>&nbsp;<?=$mobile;?></a>
+            </li>
+            <li class="nav-item mr-4 mr-lg-0">              
+              <a class="nav-link" href="tel:<?=$email;?>" target="_blank"><i class="fas fa-envelope mr-1" style="font-size:18px"></i>&nbsp;<?=$email;?></a>
+            </li>
+          </ul>
+          <!-- Contact Links -->
           <!-- Search form -->
-          <ul class="navbar-nav d-flex flex-row mr-3">
+          <ul class="navbar-nav d-flex flex-row mr-1">
             <!-- Icons -->
             <?php if($facebook != ''){ ?>
             <li class="nav-item mr-3 mr-lg-0">

@@ -149,7 +149,8 @@ i {
 }
 
 .profile-image {
-  background-color: var(--p-color);
+  background: -webkit-gradient(linear, right top, left bottom, color-stop(50%, var(--bg)), color-stop(50%, var(--p-color)));
+  background: linear-gradient(to left bottom, var(--bg) 50%, var(--p-color) 50%);
 }
 
 .image {
