@@ -6,6 +6,7 @@
   $result = $db->query($sql);
   if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
+      $id = $row['id'];
       $name = $row['name'];
       $short_desc = $row['feature_desc'];
       $salutation = $row['salutation'];
@@ -13,10 +14,16 @@
       $address = $row['address'];
       $mobile = $row['mobile'];
       $email = $row['email'];
+      $image = $row['image'];
     } 
 ?>
   <!-- Carousel wrapper -->
   <div class="banner row animated fadeIn slow">
+    <div class="col-md-6 profile-image">
+      <div class="image">
+        <img src="img/<?=$image;?>" class="img-fluid img-responsive">
+      </div>
+    </div>
     <div class="col-md-6 details">
       <h6 class="text-justify h6-responsive"><?=$salutation;?></h6>
       <h1 class="text-justify h1-responsive"><?=$name;?></h1>
@@ -25,11 +32,6 @@
       <p class="" style="text-align:justify; font-weight: 300"><?=$description;?></p>
       <a href="portfolio.php" class="btn btn-portfolio btn-lg">Portfolio</a>
       <a href="contact.php" class="btn btn-contact btn-lg ml-2">Hire Me</a>
-    </div>
-    <div class="col-md-6">
-      <div class="image">
-        <img src="img/sumeet.jpg">
-      </div>
     </div>
   </div>
   <!-- Carousel wrapper -->
