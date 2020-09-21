@@ -21,7 +21,11 @@
   <div class="banner row animated fadeIn slow">
     <div class="col-md-6 profile-image">
       <div class="image">
-        <img src="img/<?=$image;?>" class="img-fluid img-responsive">
+        <?php if($image != ''): ?>
+          <img src="img/<?=$image;?>" class="img-fluid img-responsive">
+        <?php else: ?>
+          <img src="img/profile.webp" class="img-fluid img-responsive">
+        <?php endif; ?>
       </div>
     </div>
     <div class="col-md-6 details">

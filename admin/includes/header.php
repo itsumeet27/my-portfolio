@@ -127,7 +127,11 @@
       <div class="sidebar pt-3 shadow-5">
         <div class="list-group">
           <div class="image p-3">
-            <img src="../img/<?=$image;?>" class="img-fluid img-responsive p-3" style="box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.5)" />
+            <?php if($image != ''): ?>
+              <img src="../img/<?=$image;?>" class="img-fluid img-responsive p-3" style="box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.5)" />
+            <?php else: ?>
+              <img src="../img/profile.webp" class="img-fluid img-responsive p-3">
+            <?php endif; ?>
           </div>
           <form class="form mb-3" name="profile-upload" method="post" enctype="multipart/form-data" action="">
         <div class="form-file ml-2 mr-0">

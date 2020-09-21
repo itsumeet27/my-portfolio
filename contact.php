@@ -22,6 +22,41 @@
             <div class="row">
                 <div class="contact-form col-md-6 px-4">
                     <h4 class="pb-3">SEND ME YOUR QUERY</h4>
+                    <?php
+                        if(isset($_POST['submit'])){
+                            
+                            $username = $_POST['name'];
+                            $useremail = $_POST['email'];
+                            $subject = $_POST['subject'];
+                            $message = $_POST['message'];
+
+                            $sql = "INSERT INTO contact (name,email,subject,message) VALUES ('$username','$useremail','$subject','$message')";
+                            $insert = $db->query($sql);$username = $_POST['name'];
+                            $useremail = $_POST['email'];
+                            $usermessage = $_POST['message'];
+                            $usersubject = $_POST['subject'];	
+                                    
+                            $to = $email;
+                            $subject = "Contact Message from $username";
+                            
+                            $message = "<p style='font-size: 17px'>Greetings for the day,</p>";
+                            $message .= "<p>You have a message from $username as follows:</i></p>";
+                            $message .= "<p><b>Subject: </b><i><u>$usersubject</u></i></p>";
+                            $message .= "<p><b>Message: </b>$usermessage</p>";
+                            
+                            $header = "From:$useremail \r\n";
+                            $header .= "MIME-Version: 1.0\r\n";
+                            $header .= "Content-type: text/html\r\n";
+                            
+                            $retval = mail ($to,$subject,$message,$header);
+                            
+                            if( $retval == true ) {
+                                echo "<div class='alert alert-success'>Thank you for contacting!</div>";
+                            }else {
+                                echo "<div class='alert alert-danger'>Message could not be sent</div>";
+                            }
+                        }
+                    ?>
                     <form name="contact-form" method="post" enctype="multipart/form-data" id="contact-form">
                         <!-- Name input -->
                         <div class="form-outline mb-4">
@@ -60,48 +95,5 @@
                 </div>
             </div>
         </div>
-    </div>    
-
-    <!-- Contact form -->
-    <script type="text/javascript">
-        function validateForm() {
-        document.getElementById('status').innerHTML = "Sending...";
-        formData = {
-            'name'     : $('input[name=name]').val(),
-            'email'    : $('input[name=email]').val(),
-            'subject'  : $('input[name=subject]').val(),
-            'message'  : $('textarea[name=message]').val()
-        };
-        $.ajax({
-            url : "mail.php",
-            type: "POST",
-            data : formData,
-            success: function(data, textStatus, jqXHR){
-            $('#status').text(data.message);
-            if (data.code) //If mail was sent successfully, reset the form.
-            $('#contact-form').closest('form').find("input[type=text], textarea").val("");
-            },
-            error: function (jqXHR, textStatus, errorThrown){
-            $('#status').text(jqXHR);
-            }
-        });
-        }
-    </script>
-
-    <?php
-
-        if(isset($_POST['submit'])){
-            
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $subject = $_POST['subject'];
-            $message = $_POST['message'];
-
-            $sql = "INSERT INTO contact (name,email,subject,message) VALUES ('$name','$email','$subject','$message')";
-            $insert = $db->query($sql);
-            if($insert){
-                echo "<script>alert('Thank you for contacting!')</script>";
-            }
-        }
-    ?>
+    </div>
 <?php include('includes/footer.php'); ?>
