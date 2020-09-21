@@ -11,15 +11,48 @@
 
   $sql = "SELECT * FROM about";
   $result = $db->query($sql);
-  while($row = mysqli_fetch_assoc($result)){
-    $name = $row['name'];
-    $short_desc = $row['feature_desc'];
-    $salutation = $row['salutation'];
-    $description = $row['about_desc'];
-    $address = $row['address'];
-    $mobile = $row['mobile'];
-    $email = $row['email'];
+  if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+      $id = $row['id'];
+      $name = $row['name'];
+      $short_desc = $row['feature_desc'];
+      $salutation = $row['salutation'];
+      $description = $row['about_desc'];
+      $address = $row['address'];
+      $mobile = $row['mobile'];
+      $email = $row['email'];
+      $image = $row['image'];
+    }
+
+    if(isset($_FILES['image'])){
+      // Uploading Profile
+      $imagefilename = $_FILES['image']['name'];
+      $imagepath = BASEURL.'/img';
+      $imagedestination = $imagepath . '/' . $imagefilename;
+      $imageextension = pathinfo($imagefilename, PATHINFO_EXTENSION);
+      $imagefile = $_FILES['image']['tmp_name'];
+      $imagesize = $_FILES['image']['size'];
+
+      if (!in_array($imageextension, ['jpg','jpeg','png','gif'])) {
+          echo "You file extension must be jpg, jpeg, png, gif for image";
+      } elseif ($_FILES['image']['size'] > 10000000) { // file shouldn't be larger than 100Megabyte
+          echo "Files of zip and pdf are too large!";
+      } else {
+        move_uploaded_file($imagefile, $imagedestination);
+      }
+    }
+
+    if($_POST){
+      $sql_image = "UPDATE about SET image = '$imagefilename' WHERE id = '$id'";
+      $result_image = $db->query($sql_image);
+      if($result_image){
+        echo "<script>alert('Profile image saved')</script>";
+      } 
+    }
+  }else{
+    echo "<p class='text-danger'>Fill your profile details</p>";
   }
+
 
   $sql_social = "SELECT * FROM social";
   $result_social = $db->query($sql_social);
@@ -92,7 +125,20 @@
 
       <!-- Sidebar -->
       <div class="sidebar pt-3 shadow-5">
-        <div class="list-group list-group-flush">
+        <div class="list-group">
+          <div class="image p-3">
+            <img src="../img/<?=$image;?>" class="img-fluid img-responsive p-3" style="box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.5)" />
+          </div>
+          <form class="form mb-3" name="profile-upload" method="post" enctype="multipart/form-data" action="">
+        <div class="form-file ml-2 mr-0">
+            <input type="file" class="form-file-input" name="image" id="image" />
+            <label class="form-file-label" for="image">
+              <span class="form-file-text">Add/Edit Profile Picture</span>
+              <span class="form-file-button">Browse</span>
+            </label>
+        </div>
+        <button type="submit" name="save_image" class="btn btn-floating btn-primary mt-2 mx-2"><i class="fas fa-upload"></i></button>
+    </form>
           <a href="portfolio.php" class="list-group-item list-group-item-action ripple <?php if($page == 'portfolio.php'){ echo 'active'; }?>"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Portfolio</a>
           <a href="projects.php" class="list-group-item list-group-item-action ripple <?php if($page == 'projects.php'){ echo 'active'; }?>"><i class="fas fa-building"></i>&nbsp;&nbsp;Projects</a>
           <a href="education.php" class="list-group-item list-group-item-action ripple <?php if($page == 'education.php'){ echo 'active'; }?>"><i class="fas fa-university"></i>&nbsp;&nbsp;Education</a>
