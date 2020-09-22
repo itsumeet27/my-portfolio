@@ -37,7 +37,11 @@
     <title><?=$name;?> - <?=$short_desc;?></title>
     <link rel="canonical" href="https://itsumeet.com/">
     <!-- Site Icon -->
-    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <?php if($image != ''): ?>
+    <link rel="icon" href="img/<?=$image;?>" type="image/x-icon">
+    <?php else: ?>
+    <link rel="icon" href="img/profile.webp" type="image/x-icon">
+    <?php endif; ?>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
