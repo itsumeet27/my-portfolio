@@ -1,6 +1,6 @@
 $full-height: 100%;
 $full-width: 100%;
-$font-family: Roboto;
+$font-family: Roboto,'sans-serif';
 
   * {
     box-sizing: border-box;
@@ -151,7 +151,7 @@ $font-family: Roboto;
   
   .details h1 {
     font-size: 48px;
-    font-family: Righteous;
+    font-family: Righteous,'sans-serif';
     color: var(--title-heading);
   }
 
@@ -420,31 +420,41 @@ $font-family: Roboto;
   
   /* Half Page Carousel itself*/
   .carousel {
-    height: 50%; }
-    .carousel .carousel-inner {
-      height: 100%; }
-      .carousel .carousel-inner .carousel-item,
-      .carousel .carousel-inner .active {
-        height: 100%; }
+    height: 50%; 
+  }
+  .carousel .carousel-inner {
+    height: 100%; 
+  }
+  .carousel .carousel-inner .carousel-item,
+  .carousel .carousel-inner .active {
+    height: 100%; 
+  }
   
   /* Adjustment for mobile devices*/
   @media (max-width: 776px) {
     .carousel {
-      height: 100%; } }
+      height: 100%; 
+    } 
+  }
   
   /* Navbar animation */
   .navbar {
-    background-color: rgba(0, 0, 0, 0.3); }
+    background-color: rgba(0, 0, 0, 0.3); 
+  }
   
   .top-nav-collapse {
-    background-color: #1C2331; }
+    background-color: #1C2331; 
+  }
   
   /* Adding color to the Navbar on mobile */
   @media only screen and (max-width: 768px) {
     .navbar {
-      background-color: #1C2331; } }
+      background-color: #1C2331; 
+    } 
+  }
   
   /* Footer color for sake of consistency with Navbar */
   .page-footer {
-    background-color: #1C2331; }
+    background-color: #1C2331; 
+  }
   

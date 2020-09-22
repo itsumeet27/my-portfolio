@@ -41,10 +41,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Righteous&Roboto:wght@300;400;500;700&display=swap"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Righteous&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Custom styles -->
@@ -94,7 +91,7 @@
               <a class="nav-link" href="tel:<?=$mobile;?>" target="_blank"><i class="fas fa-mobile-alt mr-1" style="font-size:18px"></i>&nbsp;<?=$mobile;?></a>
             </li>
             <li class="nav-item mr-4 mr-lg-0">              
-              <a class="nav-link" href="tel:<?=$email;?>" target="_blank"><i class="fas fa-envelope mr-1" style="font-size:18px"></i>&nbsp;<?=$email;?></a>
+              <a class="nav-link" href="mailto:<?=$email;?>" target="_blank"><i class="fas fa-envelope mr-1" style="font-size:18px"></i>&nbsp;<?=$email;?></a>
             </li>
           </ul>
           <!-- Contact Links -->
