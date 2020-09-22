@@ -75,22 +75,29 @@
 
   <!-- Dark and Light Toggle -->
   <script type="text/javascript">
-    var checkbox = document.querySelector('input[name=theme]');
-    checkbox.addEventListener('change', function(){
-      if(this.checked){
-        trans()
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }else{
-        trans()
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })
-
-    let trans = () => {
-      document.documentElement.classList.add('transition');
-      window.setTimeout(() => {
-        document.documentElement.classList.remove('transition');
-      }, 1000)
+    var toggleMode = document.querySelector('#btn-toggle');
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme == "dark") {
+      document.getElementById('theme').classList.add("dark-theme");
     }
+    toggleMode.addEventListener('click', function(){
+      document.getElementById('theme').classList.toggle("dark-theme");  
+      
+      document.getElementById('btn-theme').classList.add('fa-moon');
+      document.getElementById('btn-theme').classList.remove('fa-sun');
+      // Let's say the theme is equal to light
+      let theme = "light";
+      // If the body contains the .dark-theme class...
+      if (document.getElementById('theme').classList.contains("dark-theme")) {
+        // ...then let's make the theme dark
+        
+        document.getElementById('btn-theme').classList.remove('fa-moon');
+        document.getElementById('btn-theme').classList.add('fa-sun');
+        theme = "dark";
+      }
+      
+      // Then save the choice in localStorage
+      localStorage.setItem("theme", theme);
+    })
   </script>
 </html>

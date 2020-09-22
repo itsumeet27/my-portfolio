@@ -24,7 +24,7 @@ $font-family: Roboto;
     --box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 20%)
   }
 
-  html[data-theme='dark']{
+  html.dark-theme{
     --bg: #333;
     --frame-padding: rgb(255, 255, 255);
     --bg-panel: #444;
@@ -35,6 +35,14 @@ $font-family: Roboto;
     --title-heading: #fff;
     --hr-color: #f2f2f2;
     --box-shadow: 1px 1px 5px 1px rgb(255 255 255 / 20%)
+  }
+
+  #btn-toggle{
+    background: var(--p-color);
+  }
+
+  #btn-theme{
+    color:var(--bg)!important;
   }
 
   /* width */

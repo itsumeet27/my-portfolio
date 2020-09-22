@@ -28,7 +28,7 @@
     $behance = $social['behance'];
   }
 ?>
-<html lang="en" data-theme="light">
+<html lang="en" id="theme">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,7 +43,7 @@
     <!-- Google Fonts Roboto -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Righteous&Roboto:wght@300;400;500;700&display=swap"
     />
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
@@ -151,10 +151,7 @@
             </li>
             <?php } ?>
           </ul>
-          <div class="toggle-container form-check form-switch">
-            <input type="checkbox" id="switch" name="theme" class="form-check-input"/>
-            <label for="switch" class="form-check-label"></label>
-          </div>
+          <button class="btn btn-floating btn-dark" id="btn-toggle"><i class="fas fa-moon" id="btn-theme"></i></button>
         </div>
         <!-- Collapsible wrapper -->
       </div>
