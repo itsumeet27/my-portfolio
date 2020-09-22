@@ -155,42 +155,8 @@
             var linkedin = $('#linkedin').text();  
             var pinterest = $('#pinterest').text();  
             var github = $('#github').text();  
-            var behance = $('#behance').text();  
-            if(facebook == '')  
-            {  
-                alert("Enter Facebook Username");  
-                return false;  
-            }  
-            if(instagram == '')  
-            {  
-                alert("Enter Instagram Username");  
-                return false;  
-            } 
-            if(twitter == '')  
-            {  
-                alert("Enter Twitter Username");  
-                return false;  
-            } 
-            if(linkedin == '')  
-            {  
-                alert("Enter Linkedin Username");  
-                return false;  
-            } 
-            if(pinterest == '')  
-            {  
-                alert("Enter Pinterest Username");  
-                return false;  
-            } 
-            if(github == '')  
-            {  
-                alert("Enter Github Username");  
-                return false;  
-            }
-            if(behance == '')  
-            {  
-                alert("Enter Behance Username");  
-                return false;  
-            }  
+            var behance = $('#behance').text();
+             
             $.ajax({  
                 url:"social_links/insert.php",  
                 method:"POST",  
