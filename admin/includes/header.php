@@ -71,14 +71,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="Experienced Web Developer with a demonstrated history of working in the higher education industry. Skilled in Web framework such as Django, and PHP, WordPress, Java, HTML, CSS, Javascript, Bootstrap, Responsive Web Design, and Leadership.">
+    <meta name="description" content="<?=$description;?>">
     <title><?=$name;?> - <?=$short_desc;?></title>
-    <link rel="canonical" href="https://itsumeet.com/">
     <!-- Site Icon -->
     <?php if($image != ''): ?>
-    <link rel="icon" href="img/<?=$image;?>" type="image/x-icon">
+    <link rel="icon" href="../img/<?=$image;?>" type="image/x-icon">
     <?php else: ?>
-    <link rel="icon" href="img/profile.webp" type="image/x-icon">
+    <link rel="icon" href="../img/profile.webp" type="image/x-icon">
     <?php endif; ?>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
@@ -95,7 +94,7 @@
   <body>
     <header>
       <!-- Intro settings -->
-      <style>
+      <style type="text/css">
         #intro {
           /* Margin to fix overlapping fixed navbar */
           margin-top: 58px;
@@ -177,6 +176,9 @@
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
               <li class="nav-item <?php if($page == 'index.php'){ echo 'active'; }?>">
                 <a class="nav-link" aria-current="page" href="index.php">Home</a>
+              </li>
+              <li class="nav-item <?php if($page == 'logout.php'){ echo 'active'; }?>">
+                <a class="nav-link" aria-current="page" href="logout.php">Logout</a>
               </li>
             </ul>
 

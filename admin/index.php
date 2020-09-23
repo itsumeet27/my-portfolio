@@ -1,10 +1,20 @@
-<?php include ('includes/header.php'); ?>
+<?php 
+    session_start();
+    if(!isset($_SESSION['username'])){
+        echo "<script>window.open('login.php','_self')</script>";
+    }else{
+        include('includes/header.php');
+?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 
   <div class="container pt-3">
     <h3 class="text-center">Index Page</h3>
   </div>
   <div class="container-fluid" style="margin: 2em 0;">
+    <h5 class="text-justify py-2">Admin Details&nbsp;&nbsp;<i class="fas fa-info-circle" title="Edit Admin Details"></i> <hr style="width: 75px;border:2px solid #666;border-radius:50%"></h5>
+    <span id="result_admin"></span>
+    <div id="live_data_admin"></div>
+
     <h5 class="text-justify py-2">Profile Details&nbsp;&nbsp;<i class="fas fa-info-circle" title="Add/Edit Profile Details"></i> <hr style="width: 75px;border:2px solid #666;border-radius:50%"></h5>
     <span id="result_profile"></span>
     <div id="live_data_profile"></div> 
@@ -14,6 +24,77 @@
     <div id="live_data_social"></div> 
   </div>
 
+  <!-- Admin Details -->
+  <script type="text/javascript">
+    $(document).ready(function(){  
+        function fetch_admin_data()  
+        {  
+            $.ajax({  
+                url:"admin_details/select.php",  
+                method:"POST",  
+                success:function(data){  
+                    $('#live_data_admin').html(data);  
+                }  
+            });  
+        }  
+        fetch_admin_data();  
+        $(document).on('click', '#btn_add_admin', function(){  
+            var username = $('#username').text();  
+            var password = $('#password').text();
+
+            if(username == '')  
+            {  
+                alert("Enter Username");  
+                return false;  
+            }  
+            if(password == '')  
+            {  
+                alert("Enter Password");  
+                return false;  
+            } 
+             
+            $.ajax({  
+                url:"admin_details/insert.php",  
+                method:"POST",  
+                data:{username:username, password:password},  
+                dataType:"text",  
+                success:function(data)  
+                {  
+                    $('#result_admin').html("<div class='alert alert-success'>"+data+"</div>");
+                    fetch_admin_data();  
+                    setTimeout(location.reload.bind(location), 500);
+                }  
+            })  
+        });  
+        
+      function edit_admin_data(id, text, column_name)  
+        {  
+            $.ajax({  
+                url:"admin_details/edit.php",  
+                method:"POST",  
+                data:{id:id,text:text,column_name:column_name},  
+                dataType:"text",  
+                success:function(data){  
+                    //alert(data);
+                    $('#result_admin').html("<div class='alert alert-success'>"+data+"</div>");
+                    setTimeout(location.reload.bind(location), 500);
+                }  
+            });  
+        }  
+        $(document).on('blur', '.username', function(){  
+            var id = $(this).data("id1");  
+            var username = $(this).text();  
+            edit_admin_data(id, username, "username");  
+        });  
+        $(document).on('blur', '.password', function(){  
+            var id = $(this).data("id2");  
+            var password = $(this).text();  
+            edit_admin_data(id,password, "password");  
+        });  
+    }); 
+  </script>
+
+  <!-- Profile Details -->
   <script type="text/javascript">
     $(document).ready(function(){  
         function fetch_profile_data()  
@@ -136,6 +217,7 @@
     }); 
   </script>
 
+  <!-- Social Links -->
   <script type="text/javascript">
     $(document).ready(function(){  
         function fetch_social_data()  
@@ -224,4 +306,4 @@
     }); 
   </script>
 
-<?php include ('includes/footer.php');?>
+<?php } include ('includes/footer.php');?>

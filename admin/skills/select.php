@@ -1,8 +1,8 @@
 <?php  
-$connect = mysqli_connect("localhost", "root", "", "portfolio");  
+include('../../includes/init.php');
 $output = '';  
 $sql = "SELECT * FROM skills ORDER BY id ASC";  
-$result = mysqli_query($connect, $sql);  
+$result = mysqli_query($db, $sql);  
 $output .= '  
 <div class="table-responsive">  
 <table class="table table-bordered">  

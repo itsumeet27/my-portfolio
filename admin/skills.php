@@ -1,7 +1,12 @@
 <?php 
-  include ('includes/header.php'); 
-  include ('../includes/init.php');
-
+    session_start();
+    if(!isset($_SESSION['username'])){
+        echo "<script>window.open('login.php','_self')</script>";
+    }else{
+        include('includes/header.php');
+        include ('../includes/init.php');
+?>
+<?php
   if(isset($_GET['add']) || isset($_GET['edit'])){
     $cert_name = ((isset($_POST['cert_name']) && $_POST['cert_name'] != '')?sanitize($_POST['cert_name']):'');
     $issued_by = ((isset($_POST['issued_by']) && $_POST['issued_by'] != '')?sanitize($_POST['issued_by']):'');
@@ -199,4 +204,4 @@
         });  
     });
   </script>
-<?php include ('includes/footer.php'); ?>
+<?php } include ('includes/footer.php'); ?>

@@ -1,6 +1,10 @@
 <?php 
-	include ('includes/header.php');
-	include ('../includes/init.php');
+    session_start();
+    if(!isset($_SESSION['username'])){
+        echo "<script>window.open('login.php','_self')</script>";
+    }else{
+        include('includes/header.php');
+        include ('../includes/init.php');
 ?>
 <?php
   if(isset($_GET['add']) || isset($_GET['edit'])){
@@ -142,4 +146,4 @@
     </div>
 	</div>
 
-<?php include ('includes/footer.php');?>
+<?php } include ('includes/footer.php');?>
