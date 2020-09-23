@@ -28,9 +28,9 @@
     <title>Admin Login | <?=$name;?> - <?=$short_desc;?></title>
     <!-- Site Icon -->
     <?php if($image != ''): ?>
-    <link rel="icon" href="img/<?=$image;?>" type="image/x-icon">
+    <link rel="icon" href="../img/<?=$image;?>" type="image/x-icon">
     <?php else: ?>
-    <link rel="icon" href="img/profile.webp" type="image/x-icon">
+    <link rel="icon" href="../img/profile.webp" type="image/x-icon">
     <?php endif; ?>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />

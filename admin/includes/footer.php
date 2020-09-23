@@ -3,6 +3,8 @@
   <!--Footer-->
   <footer class="page-footer text-center font-small animated sidebar-layout">
     <?php
+      include('../includes/init.php');
+
       $sql = "SELECT * FROM about";
       $result = $db->query($sql);
       while($row = mysqli_fetch_assoc($result)){
