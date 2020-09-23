@@ -64,7 +64,7 @@
     $pinterest = $social['pinterest'];
     $github = $social['github'];
     $behance = $social['behance'];
-  } 
+  }
 ?>
 <html lang="en">
   <head>
@@ -180,58 +180,62 @@
               </li>
             </ul>
 
+            <?php
+              if(mysqli_num_rows($result_social) > 0){
+            ?>
             <ul class="navbar-nav d-flex flex-row mr-3">
-            <!-- Icons -->
-            <?php if($facebook != ''){ ?>
-            <li class="nav-item mr-3 mr-lg-0">
-              <a class="nav-link" href="https://facebook.com/<?=$facebook;?>" target="_blank">
-                <i class="fab fa-facebook mr-1" style="font-size:18px"></i>
-              </a>
-            </li>
+              <!-- Icons -->
+              <?php if($facebook != ''){ ?>
+              <li class="nav-item mr-3 mr-lg-0">
+                <a class="nav-link" href="https://facebook.com/<?=$facebook;?>" target="_blank">
+                  <i class="fab fa-facebook mr-1" style="font-size:18px"></i>
+                </a>
+              </li>
+              <?php } ?>
+              <?php if($linkedin != ''){ ?>
+              <li class="nav-item mr-3 mr-lg-0">
+                <a class="nav-link" href="https://linkedin.com/in/<?=$linkedin;?>" target="_blank">
+                  <i class="fab fa-linkedin mr-1" style="font-size:18px"></i>
+                </a>
+              </li>
+              <?php } ?>
+              <?php if($twitter != ''){ ?>
+              <li class="nav-item mr-3 mr-lg-0">
+                <a class="nav-link" href="https://twitter.com/<?=$twitter;?>" target="_blank">
+                  <i class="fab fa-twitter mr-1" style="font-size:18px"></i>
+                </a>
+              </li>
+              <?php } ?>
+              <?php if($instagram != ''){ ?>
+              <li class="nav-item mr-3 mr-lg-0">
+                <a class="nav-link" href="https://instagram.com/<?=$instagram;?>" target="_blank">
+                  <i class="fab fa-instagram mr-1" style="font-size:18px"></i>
+                </a>
+              </li>
+              <?php } ?>
+              <?php if($github != ''){ ?>
+              <li class="nav-item mr-3 mr-lg-0">
+                <a class="nav-link" href="https://github.com/<?=$github;?>" target="_blank">
+                  <i class="fab fa-github mr-1" style="font-size:18px"></i>
+                </a>
+              </li>
+              <?php } ?>
+              <?php if($pinterest != ''){ ?>
+              <li class="nav-item mr-3 mr-lg-0">
+                <a class="nav-link" href="https://in.pinterest.com/<?=$pinterest;?>" target="_blank">
+                  <i class="fab fa-pinterest mr-1" style="font-size:18px"></i>
+                </a>
+              </li>
+              <?php } ?>
+              <?php if($behance != ''){ ?>
+              <li class="nav-item mr-3 mr-lg-0">
+                <a class="nav-link" href="https://behance.net/<?=$behance;?>" target="_blank">
+                  <i class="fab fa-behance mr-1" style="font-size:18px"></i>
+                </a>
+              </li>
+              <?php } ?>
+            </ul>
             <?php } ?>
-            <?php if($linkedin != ''){ ?>
-            <li class="nav-item mr-3 mr-lg-0">
-              <a class="nav-link" href="https://linkedin.com/in/<?=$linkedin;?>" target="_blank">
-                <i class="fab fa-linkedin mr-1" style="font-size:18px"></i>
-              </a>
-            </li>
-            <?php } ?>
-            <?php if($twitter != ''){ ?>
-            <li class="nav-item mr-3 mr-lg-0">
-              <a class="nav-link" href="https://twitter.com/<?=$twitter;?>" target="_blank">
-                <i class="fab fa-twitter mr-1" style="font-size:18px"></i>
-              </a>
-            </li>
-            <?php } ?>
-            <?php if($instagram != ''){ ?>
-            <li class="nav-item mr-3 mr-lg-0">
-              <a class="nav-link" href="https://instagram.com/<?=$instagram;?>" target="_blank">
-                <i class="fab fa-instagram mr-1" style="font-size:18px"></i>
-              </a>
-            </li>
-            <?php } ?>
-            <?php if($github != ''){ ?>
-            <li class="nav-item mr-3 mr-lg-0">
-              <a class="nav-link" href="https://github.com/<?=$github;?>" target="_blank">
-                <i class="fab fa-github mr-1" style="font-size:18px"></i>
-              </a>
-            </li>
-            <?php } ?>
-            <?php if($pinterest != ''){ ?>
-            <li class="nav-item mr-3 mr-lg-0">
-              <a class="nav-link" href="https://in.pinterest.com/<?=$pinterest;?>" target="_blank">
-                <i class="fab fa-pinterest mr-1" style="font-size:18px"></i>
-              </a>
-            </li>
-            <?php } ?>
-            <?php if($behance != ''){ ?>
-            <li class="nav-item mr-3 mr-lg-0">
-              <a class="nav-link" href="https://behance.net/<?=$behance;?>" target="_blank">
-                <i class="fab fa-behance mr-1" style="font-size:18px"></i>
-              </a>
-            </li>
-            <?php } ?>
-          </ul>
           </div>
         </div>
       </nav>

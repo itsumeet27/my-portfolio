@@ -27,6 +27,10 @@
         $behance = $social['behance'];
       }
     ?>
+
+    <?php
+      if(mysqli_num_rows($result_social) > 0){
+    ?>
     <!-- Social icons -->
     <div class="pt-3 footer-social">
       <?php if($facebook != ''){ ?>
@@ -60,6 +64,7 @@
       <?php }?>
     </div>
     <!-- Social icons -->
+    <?php } ?>
 
     <!--Copyright-->
     <div class="footer-copyright pt-3 pb-2">

@@ -164,8 +164,9 @@
                 dataType:"text",  
                 success:function(data)  
                 {  
-                    alert(data);  
+                    $('#result_social').html("<div class='alert alert-success'>"+data+"</div>");
                     fetch_social_data();  
+                    setTimeout(location.reload.bind(location), 500);
                 }  
             })  
         });  
