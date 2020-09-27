@@ -3,14 +3,14 @@
     include('includes/init.php');
 ?>
     <div class="container-fluid pb-5">
-        <div class="page-title p-4">
+        <div class="page-title px-2 pb-1 pt-4">
             <h1 class="p-2">RESUME <hr></h1>        
         </div>
-        <div class="resume px-4 py-2">
-            <div class="mt-3 row px-2 mx-0">
+        <div class="resume px-2 py-2">
+            <div class="mt-3 row mx-0">
                 <!-- Education -->
                 <div class="education col-md-6">
-                    <h4 class="pb-3"><i class="fas fa-university"></i> &nbsp;Education</h4>
+                    <h4 class="py-4"><i class="fas fa-university"></i> &nbsp;Education</h4>
                     <div class="p-2" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                         <?php
                             $education = "SELECT * FROM education ORDER BY id ASC";
@@ -31,7 +31,7 @@
 
                 <!-- Work Experience -->
                 <div class="experience col-md-6">
-                    <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Work Experience</h4>
+                    <h4 class="py-4"><i class="fas fa-briefcase"></i> &nbsp;Work Experience</h4>
                     <div class="p-2" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                         <?php
                             $experience = "SELECT * FROM experience ORDER BY id ASC";
@@ -51,14 +51,14 @@
             </div>
         </div>
         <!-- Skills & Certifications -->
-        <div class="page-title px-4 py-3">
+        <div class="page-title px-2 pt-3 pb-1">
             <h3 class="p-2"><i class="fas fa-laptop"></i> &nbsp;SKILLS & CERTIFICATIONS<hr></h3>        
         </div>
-        <div class="skills px-4 py-2">
+        <div class="skills px-2 py-2">
             <div class="row">
                 <!-- Skills -->
                 <div class="experience col-md-6 px-4">  
-                    <h4 class="pb-3"><i class="fas fa-user-cog"></i> &nbsp;Skills/Technologies</h4>
+                    <h4 class="py-4"><i class="fas fa-user-cog"></i> &nbsp;Skills</h4>
                         <div class="p-2" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                         <?php
                             $skills = "SELECT * FROM skills ORDER BY id ASC";
@@ -78,7 +78,7 @@
 
                 <!-- Certifications -->
                 <div class="experience col-md-6 px-4">
-                    <h4 class="pb-3"><i class="fas fa-certificate"></i> &nbsp;Certifications</h4>
+                    <h4 class="py-4"><i class="fas fa-certificate"></i> &nbsp;Certifications</h4>
                     <div class="p-2" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                         <?php
                             $certifications = "SELECT * FROM certifications ORDER BY id ASC";
@@ -97,13 +97,13 @@
             </div>            
         </div>
         <!-- Projects -->
-        <div class="page-title px-4 py-3">
+        <div class="page-title px-2 pt-3 pb-1">
             <h3 class="p-2"><i class="fas fa-tasks"></i> &nbsp;PROJECTS <hr></h3>        
         </div>
-        <div class="mt-3 row px-4 mx-0">   
+        <div class="mt-3 row px-2 mx-0">   
             <!-- Associated with companies -->
             <div class="experience col-md-6">
-                <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Associated with companies</h4>
+                <h4 class="py-4"><i class="fas fa-briefcase"></i> &nbsp;Associated with companies</h4>
                 <div class="p-2" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                     <?php 
                         $projects = "SELECT * FROM projects WHERE associated_with <> 'Self'";
@@ -126,7 +126,7 @@
 
             <!-- Associated with self -->
             <div class="experience col-md-6">
-                <h4 class="pb-3"><i class="fas fa-briefcase"></i> &nbsp;Websites developed</h4>
+                <h4 class="py-4"><i class="fas fa-briefcase"></i> &nbsp;Websites developed</h4>
                 <div class="p-2" style="height: 480px;overflow-y: scroll; scroll-behaviour: smooth">
                     <?php 
                         $websites = "SELECT * FROM projects WHERE associated_with = 'Self'";

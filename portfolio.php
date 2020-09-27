@@ -3,10 +3,10 @@
     include('includes/init.php');
 ?>
     <div class="container-fluid">
-        <div class="page-title p-4">
+        <div class="page-title px-2 pb-1 pt-4">
             <h1 class="p-2">PORTFOLIO <hr></h1>        
         </div>
-        <div class="portfolio-data px-4 pb-4">
+        <div class="portfolio-data px-3 pb-4">
             <div class="row">            
                 <?php
                     $sql = "SELECT * FROM portfolio";

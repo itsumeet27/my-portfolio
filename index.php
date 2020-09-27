@@ -28,7 +28,7 @@
         <?php endif; ?>
       </div>
     </div>
-    <div class="col-md-6 details">
+    <div class="col-md-6 details px-4">
       <h6 class="text-justify h6-responsive"><?=$salutation;?></h6>
       <h1 class="text-justify h1-responsive"><?=$name;?></h1>
       <hr class="title">

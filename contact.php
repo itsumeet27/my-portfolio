@@ -15,10 +15,10 @@
   } 
 ?>
     <div class="container-fluid">
-        <div class="page-title p-4">
+        <div class="page-title px-2 pb-1 pt-4">
             <h1 class="p-2">CONTACT <hr></h1>        
         </div>
-        <div class="contact px-4">
+        <div class="contact px-2">
             <div class="row">
                 <div class="contact-form col-md-6 px-4">
                     <h4 class="pb-3">SEND ME YOUR QUERY</h4>
