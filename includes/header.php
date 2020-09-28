@@ -90,12 +90,12 @@
           </ul>
           <!-- Left links -->
           <!-- Contact Links -->
-          <ul class="navbar-nav d-flex flex-row mr-3 mt-0">
+          <ul class="navbar-nav d-flex flex-row mr-5 mt-0">
             <li class="nav-item mr-2 mr-lg-0">              
-              <a class="nav-link" href="tel:<?=$mobile;?>" target="_blank"><i class="fas fa-mobile-alt mr-1" style="font-size:18px"></i>&nbsp;<?=$mobile;?></a>
+              <a class="nav-link" href="tel:<?=$mobile;?>" target="_blank" style="font-size: 13px"><i class="fas fa-mobile-alt mr-1" style="font-size:18px"></i>&nbsp;<?=$mobile;?></a>
             </li>
-            <li class="nav-item mr-4 mr-lg-0">              
-              <a class="nav-link" href="mailto:<?=$email;?>" target="_blank"><i class="fas fa-envelope mr-1" style="font-size:18px"></i>&nbsp;<?=$email;?></a>
+            <li class="nav-item mr-2 mr-lg-0">              
+              <a class="nav-link" href="mailto:<?=$email;?>" target="_blank" style="font-size: 13px"><i class="fas fa-envelope mr-1" style="font-size:18px"></i>&nbsp;<?=$email;?></a>
             </li>
           </ul>
           <!-- Contact Links -->
