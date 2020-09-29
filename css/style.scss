@@ -239,9 +239,24 @@ $font-family: Roboto,'sans-serif';
     transition-duration: 0.4s;
   }
 
+  .portfolio-details p{
+    color: var(--p-color);
+    text-align: justify;
+  }
+
+  .portfolio-details p a{
+    color: var(--p-color);
+    text-decoration: underline;
+  }
+
+  .portfolio-details p a:hover{
+    text-decoration: none;
+    transition: all 0.3s;
+  }  
+
   // About Page
 
-  .page-title h1, .page-title h3{
+  .page-title h1, .page-title h2, .page-title h3{
     color: var(--page-heading);
   }
 

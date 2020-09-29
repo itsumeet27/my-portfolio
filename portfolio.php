@@ -24,7 +24,7 @@
                             <p style="text-align: justify;">
                                 <?php 
                                     if(strlen($portfolio['description'])>100){ 
-                                      $portfolio['description']=substr($portfolio['description'],0,100).'. . . <a class="font-weight-bold" href="details.php?id='.$portfolio['id'].'" title="'.nl2br($portfolio['description']).'">Read more</a>'; 
+                                      $portfolio['description']=substr($portfolio['description'],0,100).'. . . <a class="font-weight-bold" href="details.php?id='.$portfolio['id'].'">Read more</a>'; 
                                     }
                                 ?>
                                 <?=nl2br($portfolio['description']);?>

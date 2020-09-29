@@ -23,7 +23,7 @@
                     <p><label style="font-weight:600;">Technologies:&nbsp;</label><?=$portfolio['technologies'];?></p>
                     <p><label style="font-weight:600;">URL:&nbsp;</label>
                         <?php if($portfolio['url'] != ''): ?>
-                        <a href="<?=$portfolio['url'];?>" target="_blank"><?=$portfolio['url'];?></a>
+                        <a href="<?=$portfolio['url'];?>" target="_blank" id="portfolio-url"><?=$portfolio['url'];?></a>
                         <?php endif; ?>
                     </p>
                     <p class="text-justify"><label style="font-weight:600;">About:&nbsp;</label><?=nl2br($portfolio['description']);?></p>
