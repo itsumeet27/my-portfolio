@@ -21,7 +21,14 @@
                         <a href="details.php?id=<?=$portfolio['id'];?>" target="_blank"><img src="img/portfolio/<?=$portfolio['image'];?>" style="width: 100%" /></a>
                         <div class="card-overlay p-4">
                             <a href="details.php?id=<?=$portfolio['id'];?>" target="_blank"><h4 class="card-title pt-2"><?=$portfolio['name'];?></h4></a>
-                            <p class="text-justify"><?=$portfolio['description'];?></p>
+                            <p style="text-align: justify;">
+                                <?php 
+                                    if(strlen($portfolio['description'])>100){ 
+                                      $portfolio['description']=substr($portfolio['description'],0,100).'. . . <a class="font-weight-bold" href="details.php?id='.$portfolio['id'].'" title="'.nl2br($portfolio['description']).'">Read more</a>'; 
+                                    }
+                                ?>
+                                <?=nl2br($portfolio['description']);?>
+                            </p>
                             <a class="btn btn-lg btn-contact" href="details.php?id=<?=$portfolio['id'];?>" target="_blank">Details&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>
                             <!-- <?php if($portfolio['url'] != ''): ?>
                             <a class="btn btn-lg btn-contact" href="<?=$portfolio['url'];?>" target="_blank">Visit Website&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>

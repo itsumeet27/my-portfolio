@@ -16,6 +16,7 @@
     $features = ((isset($_POST['features']) && $_POST['features'] != '')?sanitize($_POST['features']):'');
     $reference = ((isset($_POST['reference']) && $_POST['reference'] != '')?sanitize($_POST['reference']):'');
     $slug = ((isset($_POST['slug']) && $_POST['slug'] != '')?sanitize($_POST['slug']):'');
+    $url = ((isset($_POST['url']) && $_POST['url'] != '')?sanitize($_POST['url']):'');
 
     $saved_image = '';
     if(isset($_GET['edit'])){
@@ -31,6 +32,7 @@
         $features = ((isset($_POST['features']) && $_POST['features'] != '')?sanitize($_POST['features']):$portfolio['features']);
         $slug = ((isset($_POST['slug']) && $_POST['slug'] != '')?sanitize($_POST['slug']):$portfolio['slug']);
         $reference = ((isset($_POST['reference']) && $_POST['reference'] != '')?sanitize($_POST['reference']):$portfolio['reference']);
+        $url = ((isset($_POST['url']) && $_POST['url'] != '')?sanitize($_POST['url']):$portfolio['url']);
     }
 
     if(isset($_POST['submit'])){
@@ -51,11 +53,11 @@
       }
 
       if(isset($_GET['add'])){          
-          $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies,features,reference,slug) VALUES ('$name','$description','$category','$imagefilename','$technologies','$features','$reference')";
+          $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies,features,reference,slug,url) VALUES ('$name','$description','$category','$imagefilename','$technologies','$features','$reference','$url')";
       }
 
       if(isset($_GET['edit'])){
-        $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies', features = '$features', reference = '$reference', slug = '$slug' WHERE id = '$edit_id'";
+        $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies', features = '$features', reference = '$reference', slug = '$slug', url = '$url' WHERE id = '$edit_id'";
       }
 
       if($db->query($insertSql)){
@@ -97,6 +99,7 @@
           <th style="font-size:13px">Features</th>
           <th style="font-size:13px">Reference</th>
           <th style="font-size:13px">Slug</th>
+          <th style="font-size:13px">URL</th>
         </thead>
         <tbody>
           <?php
@@ -114,13 +117,28 @@
               <a href="portfolio.php?delete=<?=$portfolio['id'];?>" style="font-size:13px;color:#555"><i class="fas fa-trash" title="Delete"></i></a>
             </td>
             <td style="font-size:13px"><?=$portfolio['name'];?></td>
-            <td style="font-size:13px"><?=$portfolio['description'];?></td>
+            <td style="font-size:13px">
+              <?php 
+                if(strlen($portfolio['description'])>50){ 
+                  $portfolio['description']=substr($portfolio['description'],0,50).'. . . <a class="font-weight-bold" href="" title="'.nl2br($portfolio['description']).'">Read more</a>'; 
+                }
+              ?>
+              <?=nl2br($portfolio['description']);?>
+            </td>
             <td style="font-size:13px"><?=$portfolio['category'];?></td>
             <td style="font-size:13px"><img src="../img/portfolio/<?=$portfolio['image'];?>" class="img-fluid img-responsive" style="width: 100%"></td>
             <td style="font-size:13px"><?=$portfolio['technologies'];?></td>
-            <td style="font-size:13px"><?=$portfolio['features'];?></td>
+            <td style="font-size:13px">
+              <?php 
+                if(strlen($portfolio['features'])>50){ 
+                  $portfolio['features']=substr($portfolio['features'],0,50).'. . . <a class="font-weight-bold" href="" title="'.nl2br($portfolio['features']).'">Read more</a>'; 
+                }
+              ?>
+              <?=nl2br($portfolio['features']);?>
+            </td>
             <td style="font-size:13px"><?=$portfolio['reference'];?></td>
             <td style="font-size:13px"><?=$portfolio['slug'];?></td>
+            <td style="font-size:13px"><?=$portfolio['url'];?></td>
           </tr>
           <?php endwhile; } ?>
         </tbody>
@@ -180,6 +198,11 @@
               <div class="mt-4 form-outline">
                 <input type="text" id="slug" name="slug" class="form-control" value="<?=((isset($_GET['edit']))?$slug:'');?>">
                 <label for="slug" class="form-label">Slug</label>
+              </div>
+              <!-- URL -->
+              <div class="mt-4 form-outline">
+                <input type="text" id="url" name="url" class="form-control" value="<?=((isset($_GET['edit']))?$url:'');?>">
+                <label for="url" class="form-label">URL</label>
               </div>
             </div>
             <div class="modal-footer">

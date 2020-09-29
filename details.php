@@ -26,9 +26,11 @@
                         <a href="<?=$portfolio['url'];?>" target="_blank"><?=$portfolio['url'];?></a>
                         <?php endif; ?>
                     </p>
-                    <p class="text-justify"><label style="font-weight:600;">About:&nbsp;</label><?=$portfolio['description'];?></p>
+                    <p class="text-justify"><label style="font-weight:600;">About:&nbsp;</label><?=nl2br($portfolio['description']);?></p>
                     <p class="text-justify"><label style="font-weight:600;">Features:&nbsp;</label><br><?=nl2br($portfolio['features']);?></p>
+                    <?php if($portfolio['reference'] != ''): ?>
                     <p class="text-justify"><label style="font-weight:600;">References:&nbsp;</label><?=$portfolio['reference'];?></p>
+                    <?php endif; ?>
                 </div>
                 <?php endwhile; } } else { echo "<div class='alert alert-danger'>No data to display</div>"; } ?>
             </div>
