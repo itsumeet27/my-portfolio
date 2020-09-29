@@ -29,10 +29,9 @@
                                 ?>
                                 <?=nl2br($portfolio['description']);?>
                             </p>
-                            <a class="btn btn-lg btn-contact" href="details.php?id=<?=$portfolio['id'];?>" target="_blank">Details&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>
-                            <!-- <?php if($portfolio['url'] != ''): ?>
-                            <a class="btn btn-lg btn-contact" href="<?=$portfolio['url'];?>" target="_blank">Visit Website&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>
-                            <?php endif; ?> -->
+                            <?php if($portfolio['url'] != ''): ?>
+                            <a class="btn btn-md btn-contact" href="<?=$portfolio['url'];?>" target="_blank">Visit Website&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <!-- Card -->
