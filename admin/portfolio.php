@@ -13,6 +13,9 @@
     $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):'');
     $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):'');
     $technologies = ((isset($_POST['technologies']) && $_POST['technologies'] != '')?sanitize($_POST['technologies']):'');
+    $features = ((isset($_POST['features']) && $_POST['features'] != '')?sanitize($_POST['features']):'');
+    $reference = ((isset($_POST['reference']) && $_POST['reference'] != '')?sanitize($_POST['reference']):'');
+    $slug = ((isset($_POST['slug']) && $_POST['slug'] != '')?sanitize($_POST['slug']):'');
 
     $saved_image = '';
     if(isset($_GET['edit'])){
@@ -25,9 +28,12 @@
         $description = ((isset($_POST['description']) && $_POST['description'] != '')?sanitize($_POST['description']):$portfolio['description']);
         $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):$portfolio['category']);
         $technologies = ((isset($_POST['technologies']) && $_POST['technologies'] != '')?sanitize($_POST['technologies']):$portfolio['technologies']);
+        $features = ((isset($_POST['features']) && $_POST['features'] != '')?sanitize($_POST['features']):$portfolio['features']);
+        $slug = ((isset($_POST['slug']) && $_POST['slug'] != '')?sanitize($_POST['slug']):$portfolio['slug']);
+        $reference = ((isset($_POST['reference']) && $_POST['reference'] != '')?sanitize($_POST['reference']):$portfolio['reference']);
     }
 
-    if($_POST){
+    if(isset($_POST['submit'])){
       // Uploading Portfolio Image
       $imagefilename = $_FILES['image']['name'];
       $imagepath = BASEURL.'img/portfolio';
@@ -45,11 +51,11 @@
       }
 
       if(isset($_GET['add'])){          
-          $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies) VALUES ('$name','$description','$category','$imagefilename','$technologies')";
+          $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies,features,reference,slug) VALUES ('$name','$description','$category','$imagefilename','$technologies','$features','$reference')";
       }
 
       if(isset($_GET['edit'])){
-        $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies' WHERE id = '$edit_id'";
+        $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies', features = '$features', reference = '$reference', slug = '$slug' WHERE id = '$edit_id'";
       }
 
       if($db->query($insertSql)){
@@ -88,6 +94,9 @@
           <th style="font-size:13px">Category</th>
           <th width="125" style="font-size:13px">Image</th>
           <th style="font-size:13px">Technologies</th>
+          <th style="font-size:13px">Features</th>
+          <th style="font-size:13px">Reference</th>
+          <th style="font-size:13px">Slug</th>
         </thead>
         <tbody>
           <?php
@@ -109,6 +118,9 @@
             <td style="font-size:13px"><?=$portfolio['category'];?></td>
             <td style="font-size:13px"><img src="../img/portfolio/<?=$portfolio['image'];?>" class="img-fluid img-responsive" style="width: 100%"></td>
             <td style="font-size:13px"><?=$portfolio['technologies'];?></td>
+            <td style="font-size:13px"><?=$portfolio['features'];?></td>
+            <td style="font-size:13px"><?=$portfolio['reference'];?></td>
+            <td style="font-size:13px"><?=$portfolio['slug'];?></td>
           </tr>
           <?php endwhile; } ?>
         </tbody>
@@ -136,6 +148,11 @@
                 <textarea id="description" name="description" class="form-control"><?=((isset($_GET['edit']))?$description:'');?></textarea>
                 <label for="description" class="form-label">Portfolio Description</label>
               </div>
+              <!-- Portfolio Features -->
+              <div class="mt-4 form-outline">
+                <textarea id="features" name="features" class="form-control"><?=((isset($_GET['edit']))?$features:'');?></textarea>
+                <label for="features" class="form-label">Portfolio Features</label>
+              </div>
               <!-- Portfolio Category -->
               <div class="mt-4 form-outline">
                 <input type="text" id="category" name="category" class="form-control" value="<?=((isset($_GET['edit']))?$category:'');?>">
@@ -154,12 +171,22 @@
                 <input type="text" id="technologies" name="technologies" class="form-control" value="<?=((isset($_GET['edit']))?$technologies:'');?>">
                 <label for="technologies" class="form-label">Technologies Used</label>
               </div>
+              <!-- Reference -->
+              <div class="mt-4 form-outline">
+                <input type="text" id="reference" name="reference" class="form-control" value="<?=((isset($_GET['edit']))?$reference:'');?>">
+                <label for="reference" class="form-label">Reference</label>
+              </div>
+              <!-- Slug -->
+              <div class="mt-4 form-outline">
+                <input type="text" id="slug" name="slug" class="form-control" value="<?=((isset($_GET['edit']))?$slug:'');?>">
+                <label for="slug" class="form-label">Slug</label>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
+              <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
             </div>
           </form>
         </div>

@@ -42,7 +42,7 @@
       }
     }
 
-    if($_POST){
+    if(isset($_POST['save_image'])){
       $sql_image = "UPDATE about SET image = '$imagefilename' WHERE id = '$id'";
       $result_image = $db->query($sql_image);
       if($result_image){

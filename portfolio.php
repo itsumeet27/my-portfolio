@@ -18,13 +18,14 @@
                     <!-- Card -->
                     <div class="card card-image" style="height: 100%">
                     <!-- Content -->
-                        <img src="img/portfolio/<?=$portfolio['image'];?>" style="width: 100%" />
+                        <a href="details.php?id=<?=$portfolio['id'];?>" target="_blank"><img src="img/portfolio/<?=$portfolio['image'];?>" style="width: 100%" /></a>
                         <div class="card-overlay p-4">
-                            <h4 class="card-title pt-2"><?=$portfolio['name'];?></h4>
+                            <a href="details.php?id=<?=$portfolio['id'];?>" target="_blank"><h4 class="card-title pt-2"><?=$portfolio['name'];?></h4></a>
                             <p class="text-justify"><?=$portfolio['description'];?></p>
-                            <?php if($portfolio['url'] != ''): ?>
+                            <a class="btn btn-lg btn-contact" href="details.php?id=<?=$portfolio['id'];?>" target="_blank">Details&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>
+                            <!-- <?php if($portfolio['url'] != ''): ?>
                             <a class="btn btn-lg btn-contact" href="<?=$portfolio['url'];?>" target="_blank">Visit Website&nbsp;&nbsp;<i class="fas fa-external-link-alt"></i></a>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
                         </div>
                     </div>
                     <!-- Card -->
