@@ -37,27 +37,27 @@
 
     if(isset($_POST['submit'])){
       // Uploading Portfolio Image
-      $imagefilename = $_FILES['image']['name'];
-      $imagepath = BASEURL.'img/portfolio';
-      $imagedestination = $imagepath . '/' . $imagefilename;
-      $imageextension = pathinfo($imagefilename, PATHINFO_EXTENSION);
-      $imagefile = $_FILES['image']['tmp_name'];
-      $imagesize = $_FILES['image']['size'];
+      $filename = $_FILES['profile_image']['name'];
+      $pathimage = BASEURL.'img/portfolio';
+      $destination = $pathimage . '/' . $filename;
+      $extension = pathinfo($filename, PATHINFO_EXTENSION);
+      $file_image = $_FILES['profile_image']['tmp_name'];
+      $imgsize = $_FILES['profile_image']['size'];
 
-      if (!in_array($imageextension, ['jpg','jpeg','png','gif','PNG','JPG','GIF'])) {
+      if (!in_array($extension, ['jpg','jpeg','png','gif','PNG','JPG','GIF'])) {
           echo "You file extension must be jpg, jpeg, png, gif for image files";
-      } elseif ($_FILES['image']['size'] > 10000000) { // file shouldn't be larger than 100Megabyte
+      } elseif ($imgsize > 10000000) { // file shouldn't be larger than 100Megabyte
           echo "Files are too large!";
       } else {
-          move_uploaded_file($imagefile, $imagedestination);
+          move_uploaded_file($file_image, $destination);
       }
-
+      
       if(isset($_GET['add'])){          
-          $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies,features,reference,slug,url) VALUES ('$name','$description','$category','$imagefilename','$technologies','$features','$reference','$url')";
+          $insertSql = "INSERT INTO portfolio (name,description,category,image,technologies,features,reference,slug,url) VALUES ('$name','$description','$category','$filename','$technologies','$features','$reference','$slug','$url')";
       }
 
       if(isset($_GET['edit'])){
-        $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$imagefilename', technologies = '$technologies', features = '$features', reference = '$reference', slug = '$slug', url = '$url' WHERE id = '$edit_id'";
+        $insertSql = "UPDATE portfolio SET name = '$name', description = '$description', category = '$category', image = '$filename', technologies = '$technologies', features = '$features', reference = '$reference', slug = '$slug', url = '$url' WHERE id = '$edit_id'";
       }
 
       if($db->query($insertSql)){
@@ -178,8 +178,8 @@
               </div>
               <!-- Portfolio Image -->
               <div class="form-file my-4">
-                <input type="file" class="form-file-input" name="image" id="image" />
-                <label class="form-file-label" for="image">
+                <input type="file" class="form-file-input" name="profile_image" id="profile_image" />
+                <label class="form-file-label" for="profile_image">
                   <span class="form-file-text">Choose file...</span>
                   <span class="form-file-button">Browse</span>
                 </label>
