@@ -12,7 +12,7 @@
                     while ($row = mysqli_fetch_assoc($result_list)) {
                         ?>
                         <li class="nav-item portfolio-list">
-                            <a class="nav-link px-0" href="details.php?id=<?=$row['id'];?>"><?=$row['name'];?></a>
+                            <a class="nav-link px-0" href="details.php?id=<?=$row['id'];?>"><img src="img/portfolio/<?=$row['image'];?>" class="img-fluid" width="100"><span class="ml-2"><?=$row['name'];?></span></a>
                         </li>
                         <?php
                     }
