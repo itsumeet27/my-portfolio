@@ -289,6 +289,20 @@ label {
   background: var(--bg);
   color: var(--p-color); }
 
+.portfolio-list-items h3 {
+  color: var(--bg); }
+
+.portfolio-list-items {
+  background: var(--p-color) !important; }
+
+.portfolio-list a {
+  color: var(--bg);
+  text-decoration: underline; }
+
+.portfolio-list a:hover {
+  transition-duration: 0.3s;
+  text-decoration: none; }
+
 .contact-form h4, .contact-details h4 {
   color: var(--p-color); }
 

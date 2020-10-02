@@ -34,9 +34,7 @@
                 </div>
                 <?php endwhile; } } else { echo "<div class='alert alert-danger'>No data to display</div>"; } ?>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mt-4">
-
-            </div>
+            <?php include('includes/sidebar.php'); ?>
         </div>
     </div>
 <?php include('includes/footer.php'); ?>

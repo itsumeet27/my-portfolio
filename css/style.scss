@@ -363,6 +363,24 @@ $font-family: Roboto,'sans-serif';
     color: var(--p-color);
   }
 
+  .portfolio-list-items h3{
+    color: var(--bg);
+  }
+
+  .portfolio-list-items{
+    background: var(--p-color)!important;
+  }
+
+  .portfolio-list a{
+    color: var(--bg);
+    text-decoration: underline;
+  }
+
+  .portfolio-list a:hover{
+    transition-duration: 0.3s;
+    text-decoration: none;
+  }
+
   // Contact
 
   .contact-form h4, .contact-details h4{
