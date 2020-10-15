@@ -147,6 +147,7 @@
         <button type="submit" name="save_image" class="btn btn-floating btn-primary mt-2 mx-2"><i class="fas fa-upload"></i></button>
     </form>
           <a href="portfolio.php" class="list-group-item list-group-item-action ripple <?php if($page == 'portfolio.php'){ echo 'active'; }?>"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Portfolio</a>
+          <a href="comments.php" class="list-group-item list-group-item-action ripple <?php if($page == 'comments.php'){ echo 'active'; }?>"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Comments</a>
           <a href="projects.php" class="list-group-item list-group-item-action ripple <?php if($page == 'projects.php'){ echo 'active'; }?>"><i class="fas fa-building"></i>&nbsp;&nbsp;Projects</a>
           <a href="education.php" class="list-group-item list-group-item-action ripple <?php if($page == 'education.php'){ echo 'active'; }?>"><i class="fas fa-university"></i>&nbsp;&nbsp;Education</a>
           <a href="experience.php" class="list-group-item list-group-item-action ripple <?php if($page == 'experience.php'){ echo 'active'; }?>"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Experience</a>

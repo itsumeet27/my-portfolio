@@ -138,7 +138,7 @@
               </div>
               <!-- Description -->
               <div class="form-outline my-4">
-                <textarea id="description" name="description" class="form-control" value="<?=((isset($_GET['edit']))?$description:'');?>"></textarea>
+                <textarea id="description" name="description" class="form-control"><?=((isset($_GET['edit']))?$description:'');?></textarea>
                 <label for="description" class="form-label">Description</label>
               </div>
               <!-- Technologies -->

@@ -33,6 +33,68 @@
                     <?php endif; ?>
                 </div>
                 <?php endwhile; } } else { echo "<div class='alert alert-danger'>No data to display</div>"; } ?>
+                <!-- Display Comments -->
+                <div class="display-comments">
+                    <?php
+                        $display = "SELECT * FROM comments WHERE approve = 1 AND portfolio_id = ".$_GET['id']."";
+                        $runDisplay = $db->query($display);
+                        if(mysqli_num_rows($runDisplay) > 0){
+                            echo "<h4 class='h4-responsive py-3'>COMMENTS!</h4>";
+                            while($rowDisplay = mysqli_fetch_assoc($runDisplay)){
+                                ?>
+                                <div class="comments-section">
+                                    <h6 class="comment-by h6-responsive font-weight-bold"><?=$rowDisplay['name'];?> (<?=$rowDisplay['email'];?>)</h6>
+                                    <p class="mt-3"><sup><i class="fas fa-quote-left mr-2" style="font-size: 13px"></i></sup><?=$rowDisplay['comment'];?></p>
+                                </div>
+                                <?php
+                            }
+                        }
+                    ?>
+                </div>
+                <!-- Add a Comment -->
+                <div class="comments">
+                    <h4 class="h4-responsive py-3">LEAVE A REPLY!</h4>
+                    <?php
+                        if(isset($_POST['save_comment'])){                    
+                            $portfolio_id = $_GET['id'];
+                            $comment = $_POST['comment'];
+                            $name = $_POST['name'];
+                            $email = $_POST['email'];
+
+                            $sqlComment = "INSERT INTO comments (portfolio_id,comment,name,email) VALUES ('$portfolio_id','$comment','$name','$email')";
+                            $insertComment = $db->query($sqlComment);
+                            if($insertComment){
+                                echo "<script>alert('Thank you for your comment! Your comment will be approved and displayed soon.')</script>";
+                            }
+                        }
+                    ?>
+                    <div class="contact-form">
+                        <form name="contact-form" method="post" enctype="multipart/form-data" id="contact-form">
+
+                            <!-- Comment -->
+                            <div class="form-outline mb-4">
+                                <textarea class="form-control" name="comment" id="comment" rows="4"required></textarea>
+                                <label class="form-label" for="comment">Comment</label>
+                            </div>
+
+                            <!-- Name input -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="name" name="name" class="form-control" required/>
+                                <label class="form-label" for="name">Name</label>
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="email" name="email" class="form-control" required/>
+                                <label class="form-label" for="email">Email</label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" name="save_comment" class="btn btn-lg btn-portfolio mb-4">Submit &nbsp;<i class="fas fa-paper-plane"></i></button>
+                            <div class="status"></div>
+                        </form>
+                    </div>
+                </div>
             </div>
             <?php include('includes/sidebar.php'); ?>
         </div>
